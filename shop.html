@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop our handcrafted artisan cookies - chocolate chip, oatmeal, macarons, brownies, gift boxes and more. Fresh baked daily.">
+    <title>Shop Cookies | CookieCraft</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { display: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body">
+
+<div id="page-loader"><div class="flex flex-col items-center space-y-4"><div class="loader-spinner"></div><span class="text-xs font-bold uppercase tracking-widest text-amber-600">Loading...</span></div></div>
+
+<div id="navbar-container"></div>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="hero-lock relative h-[50vh] md:h-[60vh] flex items-center justify-center bg-gray-950 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1920&auto=format" alt="Cookie display" class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80"></div>
+    </div>
+    <div class="relative z-10 text-center px-4">
+        <div class="inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md mb-6 animate-fade-in-down">
+            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">🛒 Free Shipping Over $50</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter uppercase animate-fade-in-up" style="font-family: 'Playfair Display', serif;">
+            Our <span class="text-amber-500">Cookie</span> Shop
+        </h1>
+        <p class="text-gray-300 mt-4 max-w-lg mx-auto text-sm md:text-base animate-fade-in-up animation-delay-200">Handcrafted, fresh-baked, and delivered with love. Find your perfect cookie.</p>
+    </div>
+</section>
+
+<!-- ===== SHOP FILTER + GRID ===== -->
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-col items-center mb-12 reveal">
+            <div class="flex flex-wrap justify-center p-1.5 bg-gray-100 dark:bg-gray-800 rounded-2xl gap-1 mb-4">
+                <button onclick="filterShop('all')" class="shop-tab active-shop-tab px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all">All Cookies</button>
+                <button onclick="filterShop('classic')" class="shop-tab px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-gray-500 hover:text-gray-900 dark:hover:text-white">Classic</button>
+                <button onclick="filterShop('premium')" class="shop-tab px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-gray-500 hover:text-gray-900 dark:hover:text-white">Premium</button>
+                <button onclick="filterShop('gift')" class="shop-tab px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-gray-500 hover:text-gray-900 dark:hover:text-white">Gift Boxes</button>
+                <button onclick="filterShop('seasonal')" class="shop-tab px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-gray-500 hover:text-gray-900 dark:hover:text-white">Seasonal</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="shop-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 reveal">
+
+            <!-- Product 1 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="classic">
+                <div class="absolute top-4 left-4 z-10 bg-amber-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">#1 Best Seller</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm">
+                        <i class="far fa-heart text-sm"></i>
+                    </button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=500&auto=format" alt="Classic Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(248)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Classic Chocolate Chip</h3>
+                    <p class="text-xs text-gray-400 mb-3">Rich Belgian chocolate chunks</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$12.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">12 cookies</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="classic">
+                <div class="absolute top-4 left-4 z-10 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Organic</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=500&auto=format" alt="Oatmeal Cranberry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star-half-alt text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(183)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Oatmeal Cranberry</h3>
+                    <p class="text-xs text-gray-400 mb-3">Healthy & hearty goodness</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$10.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">12 cookies</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="premium">
+                <div class="absolute top-4 left-4 z-10 bg-pink-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">New</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=500&auto=format" alt="Salted Caramel Bliss" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(312)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Salted Caramel Bliss</h3>
+                    <p class="text-xs text-gray-400 mb-3">Sweet meets savory perfection</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$14.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">12 cookies</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="premium">
+                <div class="absolute top-4 left-4 z-10 bg-purple-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Premium</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=500&auto=format" alt="French Macarons" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(156)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">French Macarons Box</h3>
+                    <p class="text-xs text-gray-400 mb-3">Assorted premium flavors</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$24.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">24 pieces</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="premium">
+                <div class="absolute top-4 left-4 z-10 bg-amber-800 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Indulgent</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=500&auto=format" alt="Triple Fudge Brownie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(207)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Triple Fudge Brownies</h3>
+                    <p class="text-xs text-gray-400 mb-3">Dense, rich & utterly decadent</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$16.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">8 pieces</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="classic">
+                <div class="absolute top-4 left-4 z-10 bg-yellow-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Popular</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=500&auto=format" alt="Vanilla Sugar Cookie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="far fa-star text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(134)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Vanilla Sugar Cookies</h3>
+                    <p class="text-xs text-gray-400 mb-3">Soft, sweet & classic flavor</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$9.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">12 cookies</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="gift">
+                <div class="absolute top-4 left-4 z-10 bg-red-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">🎁 Gift</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1513135065346-a098a63a71ee?q=80&w=500&auto=format" alt="Signature Gift Box" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(89)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Signature Gift Box</h3>
+                    <p class="text-xs text-gray-400 mb-3">Assorted flavors, beautifully wrapped</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$39.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">24 cookies</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" data-category="seasonal">
+                <div class="absolute top-4 left-4 z-10 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">☀️ Summer</div>
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
+                </div>
+                <div class="relative aspect-square overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=500&auto=format" alt="Lemon Zest" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex text-amber-400 mb-2 space-x-0.5">
+                        <i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star text-[10px]"></i><i class="fas fa-star-half-alt text-[10px]"></i>
+                        <span class="text-[10px] text-gray-400 ml-1">(67)</span>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Lemon Zest Summer</h3>
+                    <p class="text-xs text-gray-400 mb-3">Refreshing citrus delight</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-amber-600 font-black text-lg">$11.99</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest">12 cookies</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== SUBSCRIPTION PLANS ===== -->
+<section class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16 reveal">
+            <h3 class="text-amber-600 font-black uppercase tracking-[0.3em] text-xs mb-4">Save More</h3>
+            <h2 class="text-3xl md:text-4xl font-black tracking-tighter dark:text-white uppercase mb-4" style="font-family: 'Playfair Display', serif;">
+                Cookie <span class="text-amber-600">Subscription</span> Plans
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 max-w-lg mx-auto">Never run out of your favorite cookies! Choose a monthly plan and save up to 25%.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+            <!-- Plan 1 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center group">
+                <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl">🍪</span>
+                </div>
+                <h3 class="font-black text-xl mb-1 dark:text-white">Cookie Starter</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">12 cookies / month</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-black text-amber-600">$19</span>
+                    <span class="text-gray-400 text-sm">/month</span>
+                </div>
+                <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-3 mb-8 text-left">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>12 cookies per delivery</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>Choose 2 flavors</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>Free shipping</li>
+                    <li class="flex items-center text-gray-300 dark:text-gray-600"><i class="fas fa-times text-gray-300 dark:text-gray-600 mr-3 text-xs"></i>Priority delivery</li>
+                </ul>
+                <button class="w-full bg-gray-100 dark:bg-gray-700 hover:bg-amber-600 hover:text-white text-gray-900 dark:text-white py-3 rounded-xl font-bold text-sm transition-all">Choose Plan</button>
+            </div>
+
+            <!-- Plan 2 (Popular) -->
+            <div class="bg-amber-600 p-8 rounded-3xl shadow-2xl shadow-amber-500/20 hover:-translate-y-2 transition-all duration-500 text-center relative overflow-hidden group scale-105">
+                <div class="absolute top-0 right-0 bg-white text-amber-700 text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase tracking-widest">Most Popular</div>
+                <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl">🎁</span>
+                </div>
+                <h3 class="font-black text-xl mb-1 text-white">Cookie Lover</h3>
+                <p class="text-xs text-amber-200 uppercase tracking-widest mb-6">24 cookies / month</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-black text-white">$35</span>
+                    <span class="text-amber-200 text-sm">/month</span>
+                </div>
+                <ul class="text-sm text-amber-100 space-y-3 mb-8 text-left">
+                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>24 cookies per delivery</li>
+                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>Choose 4 flavors</li>
+                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>Free express shipping</li>
+                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>Priority delivery</li>
+                </ul>
+                <button class="w-full bg-white text-amber-700 hover:bg-gray-100 py-3 rounded-xl font-black text-sm transition-all">Choose Plan</button>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center group">
+                <div class="w-16 h-16 rounded-2xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl">👑</span>
+                </div>
+                <h3 class="font-black text-xl mb-1 dark:text-white">Cookie Royalty</h3>
+                <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">48 cookies / month</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-black text-amber-600">$59</span>
+                    <span class="text-gray-400 text-sm">/month</span>
+                </div>
+                <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-3 mb-8 text-left">
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>48 cookies per delivery</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>All flavors included</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>Free same-day delivery</li>
+                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 text-xs"></i>Exclusive new flavors first</li>
+                </ul>
+                <button class="w-full bg-gray-100 dark:bg-gray-700 hover:bg-amber-600 hover:text-white text-gray-900 dark:text-white py-3 rounded-xl font-bold text-sm transition-all">Choose Plan</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CUSTOM COOKIE BUILDER CTA ===== -->
+<section class="py-16 bg-gray-50 dark:bg-gray-800/30 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 reveal">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-700 via-amber-600 to-orange-500 p-8 md:p-14 shadow-2xl">
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-32 h-32 bg-black/10 rounded-full blur-2xl"></div>
+            <div class="absolute right-10 top-1/2 -translate-y-1/2 text-[120px] opacity-10 hidden lg:block">🎨</div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="max-w-xl text-center md:text-left">
+                    <h2 class="text-2xl md:text-4xl font-black text-white mb-3" style="font-family: 'Playfair Display', serif;">Build Your Own Cookie Box!</h2>
+                    <p class="text-amber-100 text-sm md:text-base">Mix and match your favorite flavors, add a personal message, and create the perfect custom gift box for any occasion.</p>
+                </div>
+                <a href="contact.html">
+                    <button class="bg-white text-amber-700 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg whitespace-nowrap">
+                        <i class="fas fa-wand-magic-sparkles mr-2"></i>Start Building
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURES BAR ===== -->
+
+<section class="py-16 bg-gray-50 dark:bg-gray-800/50 transition-colors duration-300 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="flex items-center space-x-4 group">
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i class="fas fa-truck text-xl text-amber-600"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm dark:text-white">Free Shipping</h4>
+                    <p class="text-xs text-gray-400">On orders over $50</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 group">
+                <div class="w-14 h-14 rounded-2xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i class="fas fa-leaf text-xl text-green-600"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm dark:text-white">100% Organic</h4>
+                    <p class="text-xs text-gray-400">Natural ingredients only</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 group">
+                <div class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i class="fas fa-shield-alt text-xl text-blue-600"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm dark:text-white">Satisfaction</h4>
+                    <p class="text-xs text-gray-400">100% guarantee</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 group">
+                <div class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <i class="fas fa-cookie-bite text-xl text-purple-600"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm dark:text-white">Fresh Daily</h4>
+                    <p class="text-xs text-gray-400">Baked every morning</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="components.js"></script>
+<script>
+    // Shop filter functionality
+    function filterShop(category) {
+        const cards = document.querySelectorAll('.product-card');
+        const tabs = document.querySelectorAll('.shop-tab');
+
+        // Update active tab
+        tabs.forEach(tab => {
+            tab.classList.remove('active-shop-tab', 'bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-gray-900', 'dark:text-white');
+            tab.classList.add('text-gray-500');
+        });
+        event.target.classList.add('active-shop-tab', 'bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-gray-900', 'dark:text-white');
+        event.target.classList.remove('text-gray-500');
+
+        // Filter cards
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = '';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    card.style.transition = 'all 0.5s ease';
+                }, 50);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Set initial active tab styles
+    document.addEventListener('DOMContentLoaded', () => {
+        const firstTab = document.querySelector('.active-shop-tab');
+        if (firstTab) {
+            firstTab.classList.add('bg-white', 'dark:bg-gray-700', 'shadow-sm', 'text-gray-900', 'dark:text-white');
+        }
+    });
+</script>
+</body>
+</html>

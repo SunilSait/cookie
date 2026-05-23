@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CookieCraft - Premium artisan cookies handcrafted with love. Discover our signature flavors, custom gift boxes, and fresh-baked treats delivered to your door.">
+    <title>CookieCraft | Artisan Cookies, Baked with Love</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸª</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body">
+
+<!-- Page Loader -->
+<div id="page-loader">
+    <div class="flex flex-col items-center space-y-4">
+        <div class="loader-spinner"></div>
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Loading...</span>
+    </div>
+</div>
+
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
+
+<!-- ===== HERO SECTION ===== -->
+<header class="hero-lock relative h-[90vh] md:h-screen flex items-center justify-center bg-gray-950 overflow-hidden">
+    <!-- Background Image with slow zoom -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="w-full h-full animate-slow-zoom">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1920&auto=format" 
+                 alt="Fresh baked cookies" 
+                 class="w-full h-full object-cover opacity-50">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/90"></div>
+    </div>
+
+    <!-- Floating Cookie Decorations -->
+    <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float hidden md:block">ðŸª</div>
+    <div class="absolute top-40 right-20 text-4xl opacity-15 animate-float animation-delay-400 hidden md:block">ðŸ§</div>
+    <div class="absolute bottom-40 left-20 text-5xl opacity-10 animate-float animation-delay-800 hidden lg:block">ðŸŽ‚</div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4 sm:px-6 w-full max-w-7xl mx-auto flex flex-col items-center">
+        
+        <!-- Badge -->
+        <div class="mb-6 opacity-0 animate-fade-in-down inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            </span>
+            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">âœ¨ New Summer Flavors Are Here</span>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="opacity-0 animate-fade-in-up flex items-center space-x-3 mb-4">
+            <div class="h-px w-8 bg-amber-600"></div>
+            <span class="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-amber-500">
+                Handcrafted // Small Batch // Premium
+            </span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="hero-title opacity-0 animate-fade-in-up animation-delay-200 text-[42px] leading-[0.9] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white tracking-tighter mb-6 uppercase" style="font-family: 'Playfair Display', serif;">
+            Freshly Baked <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+                Artisan
+            </span> <span class="relative">Cookies
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-amber-600/30 blur-sm"></span>
+            </span>
+        </h1>
+
+        <!-- Stat Line -->
+        <div class="opacity-0 animate-fade-in-up animation-delay-400 flex items-center space-x-6 text-white/40 font-mono text-[9px] uppercase tracking-widest mb-6">
+            <div class="flex items-center">
+                <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 animate-pulse"></span>
+                Baking Fresh Daily
+            </div>
+            <div>Since 2020</div>
+            <div class="hidden sm:block">50,000+ Happy Customers</div>
+        </div>
+
+        <!-- Description -->
+        <p class="opacity-0 animate-fade-in-up animation-delay-400 text-sm md:text-lg lg:text-xl text-gray-300 max-w-[320px] sm:max-w-md md:max-w-2xl mb-10 leading-relaxed font-medium mx-auto">
+            Every cookie tells a story of passion, premium ingredients, and artisan craftsmanship. Taste the difference that love makes.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="opacity-0 animate-fade-in-up animation-delay-600 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
+            <a href="shop.html" class="w-full sm:w-auto">
+                <button class="group w-full sm:w-auto bg-amber-600 text-white px-8 py-4 md:py-5 rounded-xl font-black text-xs md:text-sm uppercase tracking-widest transition-all hover:bg-amber-700 active:scale-95 shadow-lg shadow-amber-600/20 btn-shine">
+                    <span class="flex items-center justify-center">
+                        Shop Our Cookies
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </span>
+                </button>
+            </a>
+            <a href="about.html" class="w-full sm:w-auto">
+                <button class="w-full sm:w-auto bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white px-8 py-4 md:py-5 rounded-xl font-black text-xs md:text-sm uppercase tracking-widest transition-all active:scale-95">
+                    Our Story
+                </button>
+            </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
+            <div class="w-[2px] h-8 md:h-12 bg-gradient-to-b from-amber-600 to-transparent opacity-50"></div>
+        </div>
+    </div>
+</header>
+
+<!-- ===== ABOUT PREVIEW SECTION ===== -->
+<section class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Image Side -->
+            <div class="relative group reveal">
+                <div class="absolute -inset-4 bg-amber-500/5 dark:bg-amber-500/10 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+                <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl img-zoom">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=800&auto=format" 
+                         alt="Baker crafting cookies" class="w-full h-[500px] object-cover">
+                    <!-- Floating Stat Card -->
+                    <div class="absolute bottom-8 right-8 bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 transition-colors">
+                        <span class="block text-3xl font-black text-amber-600 leading-none">50+</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Unique Flavors</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Side -->
+            <div class="space-y-8 reveal">
+                <div>
+                    <h3 class="text-amber-600 font-black uppercase tracking-[0.3em] text-xs mb-4">Our Story</h3>
+                    <h2 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white leading-tight tracking-tighter uppercase" style="font-family: 'Playfair Display', serif;">
+                        Baked with <br> <span class="text-amber-600">Passion</span>
+                    </h2>
+                </div>
+                
+                <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                    CookieCraft was born in 2020 from a simple idea: cookies should be an experience, not just a snack. We use only the finest butter, Belgian chocolate, and organic flour to craft cookies that are truly unforgettable. Every batch is handmade, every flavor is perfected.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-8 pt-4">
+                    <div class="border-l-4 border-amber-600 pl-6">
+                        <h4 class="text-2xl font-black text-gray-900 dark:text-white">50k+</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold tracking-widest">Cookies Sold</p>
+                    </div>
+                    <div class="border-l-4 border-gray-900 dark:border-gray-500 pl-6 transition-colors">
+                        <h4 class="text-2xl font-black text-gray-900 dark:text-white">100%</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 uppercase font-bold tracking-widest">Natural Ingredients</p>
+                    </div>
+                </div>
+
+                <a href="about.html" class="inline-flex items-center text-amber-600 font-black text-xs uppercase tracking-[0.2em] hover:text-amber-700 transition-colors group">
+                    Learn More About Us 
+                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COOKIE CATEGORIES ===== -->
+<section class="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-end mb-10 reveal">
+            <div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase leading-none" style="font-family: 'Playfair Display', serif;">
+                    Our <span class="text-amber-600">Categories</span>
+                </h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">Something delicious for every taste.</p>
+            </div>
+            <a href="shop.html" class="hidden sm:block text-amber-600 font-bold text-sm hover:underline tracking-widest uppercase">View All â†’</a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 reveal">
+            <!-- Category 1 -->
+            <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
+                <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400&auto=format" alt="Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <h3 class="font-bold text-sm md:text-base dark:text-white">Chocolate Chip</h3>
+                <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
+                <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=400&auto=format" alt="Oatmeal Raisin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <h3 class="font-bold text-sm md:text-base dark:text-white">Oatmeal Raisin</h3>
+                <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
+                <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=400&auto=format" alt="Macaron" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <h3 class="font-bold text-sm md:text-base dark:text-white">Macarons</h3>
+                <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
+                <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=400&auto=format" alt="Sugar Cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <h3 class="font-bold text-sm md:text-base dark:text-white">Sugar Cookies</h3>
+                <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
+                <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400&auto=format" alt="Brownies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <h3 class="font-bold text-sm md:text-base dark:text-white">Brownies</h3>
+                <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
+            </div>
+
+            <!-- Category 6 -->
+            <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
+                <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1513135065346-a098a63a71ee?q=80&w=400&auto=format" alt="Gift Boxes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                </div>
+                <h3 class="font-bold text-sm md:text-base dark:text-white">Gift Boxes</h3>
+                <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROMO BANNER ===== -->
+<div class="max-w-7xl mx-auto px-4 pb-20 reveal">
+    <div class="relative overflow-hidden rounded-3xl bg-amber-600 p-8 md:p-12 shadow-2xl shadow-amber-500/20">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
+        <div class="absolute top-10 right-10 text-8xl opacity-10 animate-float hidden md:block">ðŸª</div>
+
+        <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div class="max-w-xl">
+                <div class="inline-flex items-center space-x-2 bg-black/20 px-3 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-widest mb-4">
+                    <span class="flex h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                    <span>Limited Time Offer</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-white leading-tight" style="font-family: 'Playfair Display', serif;">
+                    Get 20% Off Your <span class="italic underline decoration-white/30">First</span> Order!
+                </h2>
+                <p class="text-amber-100 mt-4 text-lg">
+                    Use code <span class="font-black bg-white/20 px-2 py-0.5 rounded">SWEET20</span> at checkout. Valid for new customers only.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                <a href="shop.html">
+                    <button class="w-full bg-white text-amber-700 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg">
+                        Shop Now
+                    </button>
+                </a>
+                <a href="contact.html">
+                    <button class="w-full bg-black/20 hover:bg-black/30 border border-white/30 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all active:scale-95">
+                        Learn More
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FEATURED PRODUCTS ===== -->
+<section class="py-20 bg-gray-50 dark:bg-gray-900/50 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col items-center text-center mb-12 reveal">
+            <h2 class="text-3xl md:text-4xl font-black tracking-tighter dark:text-white uppercase mb-4" style="font-family: 'Playfair Display', serif;">
+                Best <span class="text-amber-600">Sellers</span>
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 max-w-lg">Our most loved cookies, baked fresh daily with premium ingredients.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+            <!-- Product 1 -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute top-4 left-4 z-10 bg-amber-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">#1 Best Seller</div>
+                <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format" alt="Double Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg dark:text-white mb-1">Double Chocolate Chip</h3>
+                    <p class="text-xs text-gray-400 mb-2">Rich Belgian chocolate in every bite</p>
+                    <span class="text-amber-600 font-black text-lg">$12.99</span>
+                    <span class="text-gray-400 text-sm line-through ml-2">$15.99</span>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute top-4 left-4 z-10 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Organic</div>
+                <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=600&auto=format" alt="Oatmeal Cranberry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg dark:text-white mb-1">Oatmeal Cranberry</h3>
+                    <p class="text-xs text-gray-400 mb-2">Healthy, hearty & delicious</p>
+                    <span class="text-amber-600 font-black text-lg">$10.99</span>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div class="absolute top-4 left-4 z-10 bg-pink-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">New Flavor</div>
+                <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format" alt="Salted Caramel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg dark:text-white mb-1">Salted Caramel Bliss</h3>
+                    <p class="text-xs text-gray-400 mb-2">Sweet meets savory perfection</p>
+                    <span class="text-amber-600 font-black text-lg">$14.99</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12 reveal">
+            <a href="shop.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all shadow-lg shadow-amber-600/20 active:scale-95 btn-shine">
+                View All Products
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY CHOOSE US (Flip Cards) ===== -->
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl md:text-4xl font-black tracking-tighter dark:text-white uppercase mb-4" style="font-family: 'Playfair Display', serif;">
+                Why <span class="text-amber-600">CookieCraft</span>?
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                Every cookie we make is a promise of quality, freshness, and pure artisan craftsmanship.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+            <!-- Card 1 -->
+            <div class="flip-card h-64">
+                <div class="flip-card-inner rounded-2xl shadow-lg">
+                    <div class="flip-card-front rounded-2xl bg-gray-50 dark:bg-gray-800 flex flex-col items-center justify-center p-6">
+                        <i class="fas fa-cookie-bite text-3xl text-amber-600 mb-4"></i>
+                        <h4 class="font-bold dark:text-white text-center">Fresh Daily</h4>
+                        <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-widest">Hover for Details</p>
+                    </div>
+                    <div class="flip-card-back rounded-2xl bg-amber-600 p-6 text-white flex flex-col items-center justify-center text-center">
+                        <p class="text-sm font-bold italic">Every single cookie is baked fresh each morning. We never sell anything older than 24 hours. That's our freshness guarantee.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flip-card h-64">
+                <div class="flip-card-inner rounded-2xl shadow-lg">
+                    <div class="flip-card-front rounded-2xl bg-gray-50 dark:bg-gray-800 flex flex-col items-center justify-center p-6">
+                        <i class="fas fa-leaf text-3xl text-amber-600 mb-4"></i>
+                        <h4 class="font-bold dark:text-white text-center">Organic Ingredients</h4>
+                        <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-widest">Hover for Details</p>
+                    </div>
+                    <div class="flip-card-back rounded-2xl bg-amber-600 p-6 text-white flex flex-col items-center justify-center text-center">
+                        <p class="text-sm font-bold italic">We source organic flour, free-range eggs, and premium European butter. No artificial flavors, no preservatives. Ever.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flip-card h-64">
+                <div class="flip-card-inner rounded-2xl shadow-lg">
+                    <div class="flip-card-front rounded-2xl bg-gray-50 dark:bg-gray-800 flex flex-col items-center justify-center p-6">
+                        <i class="fas fa-truck text-3xl text-amber-600 mb-4"></i>
+                        <h4 class="font-bold dark:text-white text-center">Fast Delivery</h4>
+                        <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-widest">Hover for Details</p>
+                    </div>
+                    <div class="flip-card-back rounded-2xl bg-amber-600 p-6 text-white flex flex-col items-center justify-center text-center">
+                        <p class="text-sm font-bold italic">Same-day delivery within the city. Our insulated packaging ensures your cookies arrive warm and fresh, every time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flip-card h-64">
+                <div class="flip-card-inner rounded-2xl shadow-lg">
+                    <div class="flip-card-front rounded-2xl bg-gray-50 dark:bg-gray-800 flex flex-col items-center justify-center p-6">
+                        <i class="fas fa-gift text-3xl text-amber-600 mb-4"></i>
+                        <h4 class="font-bold dark:text-white text-center">Custom Gift Boxes</h4>
+                        <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-widest">Hover for Details</p>
+                    </div>
+                    <div class="flip-card-back rounded-2xl bg-amber-600 p-6 text-white flex flex-col items-center justify-center text-center">
+                        <p class="text-sm font-bold italic">Create the perfect gift with our custom cookie boxes. Choose your flavors, add a personalized message, and make someone's day!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="py-24 bg-gray-50 dark:bg-gray-900/50 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl md:text-4xl font-black tracking-tighter dark:text-white uppercase mb-4" style="font-family: 'Playfair Display', serif;">
+                What Our <span class="text-amber-600">Customers</span> Say
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 max-w-lg mx-auto">Thousands of happy customers can't be wrong.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 reveal">
+            <!-- Testimonial 1 -->
+            <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-transparent hover:border-amber-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                <div class="absolute -top-5 left-8 flex items-center">
+                    <div class="w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 overflow-hidden shadow-lg bg-amber-100 flex items-center justify-center">
+                        <span class="text-xl">ðŸ‘©</span>
+                    </div>
+                    <div class="ml-3 bg-amber-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-lg">Verified</div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex text-amber-400 mb-3">
+                        <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic leading-relaxed mb-6">
+                        "These are hands down the BEST cookies I've ever tasted. The Double Chocolate Chip is absolutely divine. I ordered a gift box for my mom and she was thrilled!"
+                    </p>
+                    <div>
+                        <h4 class="font-bold dark:text-white">Emily Rodriguez</h4>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Loyal Customer since 2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-transparent hover:border-amber-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                <div class="absolute -top-5 left-8 flex items-center">
+                    <div class="w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 overflow-hidden shadow-lg bg-blue-100 flex items-center justify-center">
+                        <span class="text-xl">ðŸ‘¨</span>
+                    </div>
+                    <div class="ml-3 bg-amber-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-lg">Verified</div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex text-amber-400 mb-3">
+                        <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic leading-relaxed mb-6">
+                        "I'm a professional chef and I'm blown away by the quality. The salted caramel cookies have the perfect balance. This is artisan baking at its finest."
+                    </p>
+                    <div>
+                        <h4 class="font-bold dark:text-white">James Mitchell</h4>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Professional Chef</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-transparent hover:border-amber-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 lg:col-span-1 md:col-span-2 lg:md:col-span-1">
+                <div class="absolute -top-5 left-8 flex items-center">
+                    <div class="w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 overflow-hidden shadow-lg bg-pink-100 flex items-center justify-center">
+                        <span class="text-xl">ðŸ‘©â€ðŸ’¼</span>
+                    </div>
+                    <div class="ml-3 bg-amber-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-lg">Verified</div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex text-amber-400 mb-3">
+                        <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs"></i><i class="fas fa-star-half-alt text-xs"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic leading-relaxed mb-6">
+                        "We order CookieCraft for all our corporate events. The custom gift boxes with company branding are always a hit. Amazing quality and service."
+                    </p>
+                    <div>
+                        <h4 class="font-bold dark:text-white">Sarah Kim</h4>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest">Event Coordinator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="py-20 bg-white dark:bg-gray-950 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 reveal">
+        <div class="relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-amber-50 dark:bg-gray-900 border border-amber-100 dark:border-gray-800 p-8 md:p-24 shadow-xl text-center">
+            
+            <!-- Decorative Blobs -->
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-amber-200/60 dark:bg-amber-800/20 rounded-full blur-[80px]"></div>
+
+            <div class="relative z-10 flex flex-col items-center">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2 bg-white dark:bg-gray-800 border border-amber-200 dark:border-gray-700 px-5 py-2 rounded-full mb-8 md:mb-10 shadow-sm">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                    </span>
+                    <span class="text-gray-900 dark:text-white text-[10px] font-black uppercase tracking-[0.3em]">Freshly Baked Today</span>
+                </div>
+
+                <h2 class="text-3xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-white leading-[0.95] mb-6 md:mb-8 max-w-4xl uppercase tracking-tighter" style="font-family: 'Playfair Display', serif;">
+                    Life is Short, <span class="text-amber-600 underline decoration-amber-200 dark:decoration-gray-700">Eat</span> <br>
+                    Good Cookies
+                </h2>
+
+                <p class="text-gray-600 dark:text-gray-400 text-sm md:text-xl max-w-2xl mb-10 md:mb-14 leading-relaxed font-medium px-2">
+                    Don't settle for ordinary. Join over 50,000+ cookie lovers who have discovered the CookieCraft difference. Order now and taste the magic.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full sm:w-auto">
+                    <a href="shop.html" class="w-full sm:w-auto">
+                        <button class="group relative w-full sm:w-72 md:w-80 bg-amber-600 hover:bg-amber-700 text-white py-4 md:py-6 rounded-xl md:rounded-2xl font-black uppercase tracking-widest text-xs md:text-sm transition-all shadow-2xl shadow-amber-500/30 active:scale-95 overflow-hidden btn-shine">
+                            <span class="relative z-10 flex items-center justify-center">
+                                Order Fresh Cookies
+                                <i class="fas fa-cookie-bite ml-3 group-hover:animate-bounce"></i>
+                            </span>
+                        </button>
+                    </a>
+                    <a href="gallery.html" class="w-full sm:w-auto">
+                        <button class="w-full sm:w-72 md:w-80 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-4 md:py-6 rounded-xl md:rounded-2xl font-black uppercase tracking-widest text-xs md:text-sm transition-all shadow-xl active:scale-95 border border-transparent dark:border-gray-200">
+                            Explore Gallery
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="mt-12 md:mt-16 flex flex-wrap justify-center items-center gap-4 md:gap-8 opacity-60">
+                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">ðŸ† Award Winning</span>
+                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">ðŸŒ± 100% Organic</span>
+                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest">ðŸšš Same Day Delivery</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Container -->
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="components.js"></script>
+</body>
+</html>
+

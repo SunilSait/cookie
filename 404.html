@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - CookieCraft">
+    <title>404 - Page Not Found | CookieCraft</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { display: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        @keyframes cookie-crumble {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-5deg) scale(1.05); }
+            50% { transform: rotate(5deg) scale(1); }
+            75% { transform: rotate(-3deg) scale(1.02); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+        .cookie-wobble:hover {
+            animation: cookie-crumble 0.5s ease-in-out;
+        }
+
+        @keyframes crumb-fall-1 { 0% { opacity: 1; transform: translate(0, 0) rotate(0deg); } 100% { opacity: 0; transform: translate(-30px, 60px) rotate(-45deg); } }
+        @keyframes crumb-fall-2 { 0% { opacity: 1; transform: translate(0, 0) rotate(0deg); } 100% { opacity: 0; transform: translate(25px, 50px) rotate(30deg); } }
+        @keyframes crumb-fall-3 { 0% { opacity: 1; transform: translate(0, 0) rotate(0deg); } 100% { opacity: 0; transform: translate(10px, 70px) rotate(60deg); } }
+        
+        .crumb-1 { animation: crumb-fall-1 2s ease-in-out infinite; animation-delay: 0s; }
+        .crumb-2 { animation: crumb-fall-2 2s ease-in-out infinite; animation-delay: 0.5s; }
+        .crumb-3 { animation: crumb-fall-3 2s ease-in-out infinite; animation-delay: 1s; }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body">
+
+<div id="navbar-container"></div>
+
+<!-- ===== 404 CONTENT ===== -->
+<section class="min-h-[80vh] flex items-center justify-center py-20 bg-white dark:bg-gray-900 transition-colors duration-300 relative overflow-hidden">
+    
+    <!-- Background Decoration -->
+    <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-amber-200/30 dark:bg-amber-800/10 rounded-full blur-[80px]"></div>
+    
+    <!-- Floating cookie crumbs -->
+    <div class="absolute top-1/4 left-1/4 text-2xl opacity-30 crumb-1">🍪</div>
+    <div class="absolute top-1/3 right-1/3 text-xl opacity-20 crumb-2">🍪</div>
+    <div class="absolute bottom-1/3 left-1/3 text-lg opacity-25 crumb-3">🍪</div>
+
+    <div class="relative z-10 text-center px-4 max-w-2xl mx-auto">
+        <!-- Big Cookie -->
+        <div class="mb-8 cookie-wobble cursor-pointer inline-block">
+            <div class="text-[120px] md:text-[160px] leading-none select-none animate-float">
+                🍪
+            </div>
+        </div>
+
+        <!-- 404 Number -->
+        <h1 class="text-7xl md:text-9xl font-black text-amber-600 mb-4 tracking-tighter" style="font-family: 'Playfair Display', serif;">
+            404
+        </h1>
+
+        <!-- Message -->
+        <h2 class="text-2xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 tracking-tight" style="font-family: 'Playfair Display', serif;">
+            Oops! This Cookie <span class="text-amber-600">Crumbled</span>
+        </h2>
+
+        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-lg max-w-md mx-auto mb-10 leading-relaxed">
+            Looks like someone ate this page before you got here! Don't worry, we have plenty of fresh cookies waiting for you.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="index.html">
+                <button class="group w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all active:scale-95 shadow-lg shadow-amber-600/20 btn-shine">
+                    <span class="flex items-center justify-center">
+                        <i class="fas fa-home mr-3"></i>
+                        Back to Home
+                    </span>
+                </button>
+            </a>
+            <a href="shop.html">
+                <button class="w-full sm:w-auto bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all active:scale-95 border border-gray-200 dark:border-gray-700">
+                    <span class="flex items-center justify-center">
+                        <i class="fas fa-shopping-bag mr-3"></i>
+                        Shop Cookies
+                    </span>
+                </button>
+            </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800">
+            <p class="text-xs text-gray-400 uppercase tracking-widest mb-4 font-bold">Or try these pages:</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="about.html" class="px-4 py-2 rounded-full bg-gray-50 dark:bg-gray-800 text-sm text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-600 transition-all border border-gray-100 dark:border-gray-700">About Us</a>
+                <a href="gallery.html" class="px-4 py-2 rounded-full bg-gray-50 dark:bg-gray-800 text-sm text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-600 transition-all border border-gray-100 dark:border-gray-700">Gallery</a>
+                <a href="contact.html" class="px-4 py-2 rounded-full bg-gray-50 dark:bg-gray-800 text-sm text-gray-600 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-600 transition-all border border-gray-100 dark:border-gray-700">Contact</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="components.js"></script>
+</body>
+</html>

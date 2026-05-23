@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our gallery of beautifully crafted artisan cookies, behind-the-scenes baking moments, and happy customers.">
+    <title>Gallery | CookieCraft</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { display: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        .masonry { columns: 1; column-gap: 1.5rem; }
+        @media (min-width: 640px) { .masonry { columns: 2; } }
+        @media (min-width: 1024px) { .masonry { columns: 3; } }
+        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+
+        /* Lightbox */
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 2rem; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 1rem; }
+        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 48px; height: 48px; background: rgba(255,255,255,0.1); border: none; color: white; font-size: 1.5rem; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; backdrop-filter: blur(10px); }
+        .lightbox-close:hover { background: rgba(217,119,6,0.8); transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body">
+
+<div id="page-loader"><div class="flex flex-col items-center space-y-4"><div class="loader-spinner"></div><span class="text-xs font-bold uppercase tracking-widest text-amber-600">Loading...</span></div></div>
+
+<div id="navbar-container"></div>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="hero-lock relative h-[50vh] md:h-[60vh] flex items-center justify-center bg-gray-950 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1920&auto=format" alt="Cookie gallery" class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80"></div>
+    </div>
+    <div class="relative z-10 text-center px-4">
+        <div class="inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md mb-6 animate-fade-in-down">
+            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">📸 Visual Feast</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter uppercase animate-fade-in-up" style="font-family: 'Playfair Display', serif;">
+            Our <span class="text-amber-500">Gallery</span>
+        </h1>
+        <p class="text-gray-300 mt-4 max-w-lg mx-auto text-sm md:text-base animate-fade-in-up animation-delay-200">A visual journey through our bakery, our cookies, and the joy they bring.</p>
+    </div>
+</section>
+
+<!-- ===== GALLERY FILTER ===== -->
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12 reveal">
+            <button onclick="filterGallery('all')" class="gallery-tab active-gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-amber-600 text-white">All</button>
+            <button onclick="filterGallery('cookies')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Cookies</button>
+            <button onclick="filterGallery('baking')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Baking</button>
+            <button onclick="filterGallery('events')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Events</button>
+            <button onclick="filterGallery('team')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Our Team</button>
+        </div>
+
+        <!-- Masonry Gallery -->
+        <div class="masonry reveal" id="gallery-grid">
+
+            <!-- Image 1 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format" alt="Chocolate chip cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Classic Chocolate Chip</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Our Signature Cookie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format" alt="Fresh baked bread" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Fresh From the Oven</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Behind the Scenes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format" alt="Assorted cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Assorted Cookie Tray</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Premium Selection</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 4 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="team" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?q=80&w=600&auto=format" alt="Our bakers" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Our Baker Team</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Passion at Work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 5 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="events" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1513135065346-a098a63a71ee?q=80&w=600&auto=format" alt="Gift boxes" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Gift Boxes Ready</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Corporate Event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 6 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=600&auto=format" alt="Macarons" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">French Macarons</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Delicate & Colorful</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 7 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=600&auto=format" alt="Baker at work" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Crafting Perfection</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Artisan Process</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 8 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format" alt="Brownies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Fudge Brownies</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Rich & Decadent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 9 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="events" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=600&auto=format" alt="Cookie workshop" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Baking Workshop</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Community Event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 10 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=600&auto=format" alt="Oatmeal cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Oatmeal Cookies</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Wholesome Goodness</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 11 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="team" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?q=80&w=600&auto=format" alt="Team baking" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Team at Work</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Daily Baking Routine</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 12 -->
+            <div class="masonry-item gallery-item cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=600&auto=format" alt="Decorating cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Cookie Decorating</h3>
+                            <p class="text-gray-300 text-xs uppercase tracking-widest">Art in Action</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Gallery preview">
+</div>
+
+<!-- ===== INSTAGRAM CTA ===== -->
+<section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 reveal">
+        <div class="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 p-10 md:p-16 text-center shadow-2xl">
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
+            
+            <div class="relative z-10">
+                <i class="fab fa-instagram text-white text-5xl mb-6 block"></i>
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-4 tracking-tighter" style="font-family: 'Playfair Display', serif;">
+                    Follow Us on Instagram
+                </h2>
+                <p class="text-white/80 text-sm md:text-lg max-w-xl mx-auto mb-8">
+                    Join our community of 25K+ cookie lovers! Share your CookieCraft moments with <strong>#CookieCraftMoments</strong> and get featured on our page.
+                </p>
+                <a href="#" class="inline-block bg-white text-gray-900 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg">
+                    <i class="fab fa-instagram mr-2"></i>@cookiecraft
+                </a>
+                
+                <div class="flex flex-wrap justify-center gap-8 mt-10 text-white/70">
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-white">25K+</p>
+                        <p class="text-[10px] uppercase tracking-widest">Followers</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-white">500+</p>
+                        <p class="text-[10px] uppercase tracking-widest">Posts</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-black text-white">10K+</p>
+                        <p class="text-[10px] uppercase tracking-widest">Tagged Photos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PHOTO SUBMISSION CTA ===== -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900/50 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto px-4 text-center reveal">
+        <div class="bg-white dark:bg-gray-800 p-10 md:p-14 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-xl">
+            <div class="text-5xl mb-4">📸</div>
+            <h3 class="text-2xl md:text-3xl font-black dark:text-white mb-4" style="font-family: 'Playfair Display', serif;">
+                Share Your <span class="text-amber-600">Cookie Moments</span>
+            </h3>
+            <p class="text-gray-500 dark:text-gray-400 max-w-lg mx-auto mb-8">
+                Tag us in your cookie photos on Instagram or submit your best shots. The best submissions get featured in our gallery and win a free cookie box!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs transition-all active:scale-95 shadow-lg shadow-amber-600/20">
+                    Submit Your Photo
+                </a>
+                <a href="#" class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs transition-all border border-gray-200 dark:border-gray-600">
+                    View Winners
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="components.js"></script>
+<script>
+    // Gallery filter
+    function filterGallery(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        const tabs = document.querySelectorAll('.gallery-tab');
+
+        tabs.forEach(tab => {
+            tab.classList.remove('active-gallery-tab', 'bg-amber-600', 'text-white');
+            tab.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-500');
+        });
+        event.target.classList.add('active-gallery-tab', 'bg-amber-600', 'text-white');
+        event.target.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-500');
+
+        items.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = '';
+                item.style.opacity = '0';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transition = 'opacity 0.5s ease';
+                }, 50);
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Lightbox
+    function openLightbox(el) {
+        const img = el.querySelector('img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close lightbox on escape or background click
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    document.getElementById('lightbox').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeLightbox(); });
+</script>
+</body>
+</html>
