@@ -16,21 +16,7 @@
         }
     </script>
     <style>
-        .gallery-grid-layout {
-            display: grid;
-            grid-template-cols: 1fr;
-            gap: 1.5rem;
-        }
-        @media (min-width: 640px) {
-            .gallery-grid-layout {
-                grid-template-cols: repeat(2, 1fr);
-            }
-        }
-        @media (min-width: 1024px) {
-            .gallery-grid-layout {
-                grid-template-cols: repeat(3, 1fr);
-            }
-        }
+
 
         /* Lightbox */
         .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 2rem; }
@@ -77,7 +63,7 @@
         </div>
 
         <!-- Masonry Gallery -->
-        <div class="gallery-grid-layout" id="gallery-grid">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
 
             <!-- Image 1 -->
             <div class="gallery-item reveal cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">

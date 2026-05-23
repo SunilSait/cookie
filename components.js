@@ -32,7 +32,7 @@
     function renderNavbar() {
         const navLinksDesktop = NAV_LINKS.map(link => {
             const isActive = link.href === currentPage;
-            return `<a href="${link.href}" class="nav-link text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:text-amber-600 relative group ${isActive ? 'text-amber-600' : 'text-gray-700 dark:text-gray-300'}">
+            return `<a href="${link.href}" class="nav-link text-xs xl:text-sm font-bold uppercase tracking-wide transition-all duration-300 hover:text-amber-600 relative group ${isActive ? 'text-amber-600' : 'text-gray-700 dark:text-gray-300'}">
                 ${link.label}
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : ''}"></span>
             </a>`;
@@ -48,7 +48,7 @@
         return `
         <div id="scroll-progress" style="width: 0%"></div>
         <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
                 <div class="flex justify-between items-center h-20">
                     <!-- Logo -->
                     <a href="index.html" class="flex items-center space-x-2 group">
@@ -59,12 +59,12 @@
                     </a>
 
                     <!-- Desktop Nav Links -->
-                    <div id="desktop-links" class="hidden lg:flex items-center space-x-8">
+                    <div id="desktop-links" class="hidden lg:flex items-center space-x-3 xl:space-x-8">
                         ${navLinksDesktop}
                     </div>
 
                     <!-- Right Side Actions -->
-                    <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-2 xl:space-x-3">
                         <!-- RTL/LTR Toggle -->
                         <button id="dir-toggle" class="js-dir-toggle hidden lg:flex w-12 h-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-amber-500/50 hover:bg-white dark:hover:bg-gray-700 transition-all shadow-sm group" aria-label="Toggle text direction">
                             <span class="text-[10px] font-black text-gray-600 dark:text-gray-400 group-hover:text-amber-600 transition-colors uppercase">LTR</span>
@@ -76,12 +76,12 @@
                         </button>
 
                         <!-- Sign In Link -->
-                        <a href="login.html" class="hidden md:inline-block text-xs font-black uppercase tracking-widest text-gray-700 dark:text-gray-300 hover:text-amber-600 transition-colors mr-2">
+                        <a href="login.html" class="hidden lg:inline-block text-xs font-black uppercase tracking-widest text-gray-700 dark:text-gray-300 hover:text-amber-600 transition-colors mr-2">
                             Sign In
                         </a>
 
                         <!-- Order CTA (Desktop) -->
-                        <a href="shop.html" class="hidden md:inline-block bg-amber-600 text-white px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-700 shadow-lg shadow-amber-600/20 transition-all active:scale-95 btn-shine">
+                        <a href="shop.html" class="hidden lg:inline-block bg-amber-600 text-white px-3 py-2 xl:px-5 xl:py-2.5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-700 shadow-lg shadow-amber-600/20 transition-all active:scale-95 btn-shine">
                             Order Now
                         </a>
 
