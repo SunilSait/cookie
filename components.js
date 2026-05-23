@@ -170,7 +170,7 @@
                         <h4 class="font-bold mb-6 text-gray-900 dark:text-white uppercase text-xs tracking-widest">Support</h4>
                         <ul class="text-sm space-y-3 text-gray-500 dark:text-gray-400">
                             <li><a href="contact.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Contact Us</a></li>
-                            <li><a href="comingsoon.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Coming Soon 🚀</a></li>
+                            <li><a href="comingsoon.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Coming Soon</a></li>
                             <li><a href="404.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">404 Page</a></li>
                             <li><a href="#" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Shipping Policy</a></li>
                             <li><a href="#" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Returns & Refunds</a></li>
