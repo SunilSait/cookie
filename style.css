@@ -339,6 +339,28 @@ body {
     }
 }
 
+/* --- Centre orphan cards in shop grid at lg (1024–1279px) --- */
+/*
+ * At the lg breakpoint the grid is 3 columns (8 items → last row has 2).
+ * Switching to flex with justify-content:center makes any number of
+ * orphan items centre automatically, and still works correctly when
+ * the category filter hides / shows cards.
+ */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    #shop-grid {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem; /* = gap-6 (24 px) */
+    }
+
+    #shop-grid .product-card {
+        /* Exactly 3 cards per row: (100% − 2 × 24 px) ÷ 3 */
+        flex: 0 0 calc((100% - 3rem) / 3);
+        max-width: calc((100% - 3rem) / 3);
+    }
+}
+
 /* --- Selection Color --- */
 ::selection {
     background: #fef3c7;
