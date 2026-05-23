@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" id="root-html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CookieCraft - Premium artisan cookies handcrafted with love. Discover our signature flavors, custom gift boxes, and fresh-baked treats delivered to your door.">
     <title>CookieCraft | Artisan Cookies, Baked with Love</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸª</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -37,11 +37,11 @@
 <div id="navbar-container"></div>
 
 <!-- ===== HERO SECTION ===== -->
-<header class="hero-lock relative h-[90vh] md:h-screen flex items-center justify-center bg-gray-950 overflow-hidden">
+<header class="hero-lock relative min-h-screen md:h-screen flex items-center justify-center bg-gray-950 overflow-hidden py-20 md:py-0">
     <!-- Background Image with slow zoom -->
     <div class="absolute inset-0 z-0 pointer-events-none">
         <div class="w-full h-full animate-slow-zoom">
-            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1920&auto=format" 
+            <img src="assets/gallery-hero.jpg" 
                  alt="Fresh baked cookies" 
                  class="w-full h-full object-cover opacity-50">
         </div>
@@ -49,26 +49,26 @@
     </div>
 
     <!-- Floating Cookie Decorations -->
-    <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float hidden md:block">ðŸª</div>
-    <div class="absolute top-40 right-20 text-4xl opacity-15 animate-float animation-delay-400 hidden md:block">ðŸ§</div>
-    <div class="absolute bottom-40 left-20 text-5xl opacity-10 animate-float animation-delay-800 hidden lg:block">ðŸŽ‚</div>
+    <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float hidden md:block">🍪</div>
+    <div class="absolute top-40 right-20 text-4xl opacity-15 animate-float animation-delay-400 hidden md:block">🍩</div>
+    <div class="absolute bottom-40 left-20 text-5xl opacity-10 animate-float animation-delay-800 hidden lg:block">🍰</div>
 
     <!-- Hero Content -->
     <div class="relative z-10 text-center px-4 sm:px-6 w-full max-w-7xl mx-auto flex flex-col items-center">
         
         <!-- Badge -->
-        <div class="mb-6 opacity-0 animate-fade-in-down inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md">
-            <span class="relative flex h-2 w-2">
+        <div class="mb-6 opacity-0 animate-fade-in-down inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-3 sm:px-4 py-2 rounded-full backdrop-blur-md max-w-full">
+            <span class="relative flex h-2 w-2 flex-shrink-0">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
             </span>
-            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">âœ¨ New Summer Flavors Are Here</span>
+            <span class="text-amber-400 text-[9px] sm:text-[10px] md:text-xs font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] whitespace-nowrap">✨ New Summer Flavors Are Here</span>
         </div>
 
         <!-- Subtitle -->
-        <div class="opacity-0 animate-fade-in-up flex items-center space-x-3 mb-4">
-            <div class="h-px w-8 bg-amber-600"></div>
-            <span class="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-amber-500">
+        <div class="opacity-0 animate-fade-in-up flex items-center space-x-2 sm:space-x-3 mb-4">
+            <div class="h-px w-6 sm:w-8 bg-amber-600 flex-shrink-0"></div>
+            <span class="text-[9px] sm:text-[10px] md:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.4em] text-amber-500">
                 Handcrafted // Small Batch // Premium
             </span>
         </div>
@@ -116,7 +116,7 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
+        <div class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
             <div class="w-[2px] h-8 md:h-12 bg-gradient-to-b from-amber-600 to-transparent opacity-50"></div>
         </div>
     </div>
@@ -131,8 +131,8 @@
             <div class="relative group reveal">
                 <div class="absolute -inset-4 bg-amber-500/5 dark:bg-amber-500/10 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
                 <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl img-zoom">
-                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=800&auto=format" 
-                         alt="Baker crafting cookies" class="w-full h-[500px] object-cover">
+                    <img src="assets/baker-work.jpg" 
+                          alt="Baker crafting cookies" class="w-full h-[500px] object-cover">
                     <!-- Floating Stat Card -->
                     <div class="absolute bottom-8 right-8 bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 transition-colors">
                         <span class="block text-3xl font-black text-amber-600 leading-none">50+</span>
@@ -184,14 +184,14 @@
                 </h2>
                 <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">Something delicious for every taste.</p>
             </div>
-            <a href="shop.html" class="hidden sm:block text-amber-600 font-bold text-sm hover:underline tracking-widest uppercase">View All â†’</a>
+            <a href="shop.html" class="hidden sm:block text-amber-600 font-bold text-sm hover:underline tracking-widest uppercase">View All →</a>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 reveal">
             <!-- Category 1 -->
             <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
                 <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500 flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400&auto=format" alt="Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/chocolate-chip.jpg" alt="Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <h3 class="font-bold text-sm md:text-base dark:text-white">Chocolate Chip</h3>
                 <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
@@ -200,7 +200,7 @@
             <!-- Category 2 -->
             <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
                 <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=400&auto=format" alt="Oatmeal Raisin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/oatmeal-cookies.jpg" alt="Oatmeal Raisin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <h3 class="font-bold text-sm md:text-base dark:text-white">Oatmeal Raisin</h3>
                 <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
@@ -209,7 +209,7 @@
             <!-- Category 3 -->
             <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
                 <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=400&auto=format" alt="Macaron" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/macarons.jpg" alt="Macaron" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <h3 class="font-bold text-sm md:text-base dark:text-white">Macarons</h3>
                 <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
@@ -218,7 +218,7 @@
             <!-- Category 4 -->
             <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
                 <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=400&auto=format" alt="Sugar Cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/decorating-cookies.jpg" alt="Sugar Cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <h3 class="font-bold text-sm md:text-base dark:text-white">Sugar Cookies</h3>
                 <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
@@ -227,7 +227,7 @@
             <!-- Category 5 -->
             <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
                 <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=400&auto=format" alt="Brownies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/brownies.jpg" alt="Brownies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <h3 class="font-bold text-sm md:text-base dark:text-white">Brownies</h3>
                 <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
@@ -236,7 +236,7 @@
             <!-- Category 6 -->
             <div class="group relative bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl border border-transparent hover:border-amber-500/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center">
                 <div class="w-full aspect-square overflow-hidden rounded-xl mb-4 bg-white dark:bg-gray-700 shadow-sm group-hover:shadow-md transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1513135065346-a098a63a71ee?q=80&w=400&auto=format" alt="Gift Boxes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/gift-boxes.jpg" alt="Gift Boxes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <h3 class="font-bold text-sm md:text-base dark:text-white">Gift Boxes</h3>
                 <span class="text-[10px] text-amber-600 font-black uppercase mt-1 opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">Explore</span>
@@ -250,7 +250,7 @@
     <div class="relative overflow-hidden rounded-3xl bg-amber-600 p-8 md:p-12 shadow-2xl shadow-amber-500/20">
         <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
-        <div class="absolute top-10 right-10 text-8xl opacity-10 animate-float hidden md:block">ðŸª</div>
+        <div class="absolute top-10 right-10 text-8xl opacity-10 animate-float hidden md:block">🍪</div>
 
         <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
             <div class="max-w-xl">
@@ -266,13 +266,13 @@
                 </p>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-                <a href="shop.html">
+            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full lg:w-auto">
+                <a href="shop.html" class="w-full sm:w-auto">
                     <button class="w-full bg-white text-amber-700 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg">
                         Shop Now
                     </button>
                 </a>
-                <a href="contact.html">
+                <a href="contact.html" class="w-full sm:w-auto">
                     <button class="w-full bg-black/20 hover:bg-black/30 border border-white/30 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all active:scale-95">
                         Learn More
                     </button>
@@ -297,7 +297,7 @@
             <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <div class="absolute top-4 left-4 z-10 bg-amber-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">#1 Best Seller</div>
                 <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format" alt="Double Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/chocolate-chip.jpg" alt="Double Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -314,7 +314,7 @@
             <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <div class="absolute top-4 left-4 z-10 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Organic</div>
                 <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=600&auto=format" alt="Oatmeal Cranberry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/oatmeal-cookies.jpg" alt="Oatmeal Cranberry" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -327,10 +327,10 @@
             </div>
 
             <!-- Product 3 -->
-            <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 sm:col-span-2 sm:justify-self-center sm:max-w-[calc(50%-1rem)] sm:w-full lg:col-span-1 lg:justify-self-auto lg:max-w-none">
                 <div class="absolute top-4 left-4 z-10 bg-pink-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">New Flavor</div>
                 <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format" alt="Salted Caramel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/assorted-cookies.jpg" alt="Salted Caramel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -438,7 +438,7 @@
             <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-transparent hover:border-amber-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                 <div class="absolute -top-5 left-8 flex items-center">
                     <div class="w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 overflow-hidden shadow-lg bg-amber-100 flex items-center justify-center">
-                        <span class="text-xl">ðŸ‘©</span>
+                        <img src="assets/emily.jpg" alt="Emily Rodriguez" class="w-full h-full object-cover">
                     </div>
                     <div class="ml-3 bg-amber-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-lg">Verified</div>
                 </div>
@@ -460,7 +460,7 @@
             <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-transparent hover:border-amber-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                 <div class="absolute -top-5 left-8 flex items-center">
                     <div class="w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 overflow-hidden shadow-lg bg-blue-100 flex items-center justify-center">
-                        <span class="text-xl">ðŸ‘¨</span>
+                        <img src="assets/james.jpg" alt="James Mitchell" class="w-full h-full object-cover">
                     </div>
                     <div class="ml-3 bg-amber-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-lg">Verified</div>
                 </div>
@@ -482,7 +482,7 @@
             <div class="group relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-transparent hover:border-amber-500/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 lg:col-span-1 md:col-span-2 lg:md:col-span-1">
                 <div class="absolute -top-5 left-8 flex items-center">
                     <div class="w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 overflow-hidden shadow-lg bg-pink-100 flex items-center justify-center">
-                        <span class="text-xl">ðŸ‘©â€ðŸ’¼</span>
+                        <img src="assets/sarah.jpg" alt="Sarah Kim" class="w-full h-full object-cover">
                     </div>
                     <div class="ml-3 bg-amber-600 text-white text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-lg">Verified</div>
                 </div>
@@ -549,9 +549,9 @@
 
                 <!-- Trust badges -->
                 <div class="mt-12 md:mt-16 flex flex-wrap justify-center items-center gap-4 md:gap-8 opacity-60">
-                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">ðŸ† Award Winning</span>
-                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">ðŸŒ± 100% Organic</span>
-                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest">ðŸšš Same Day Delivery</span>
+                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">🏆 Award Winning</span>
+                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">🌱 100% Organic</span>
+                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest">🚚 Same Day Delivery</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to your CookieCraft account to manage your orders, subscription, and custom cookie boxes.">
+    <title>Login | CookieCraft</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+<!-- Decorative Background Circles -->
+<div class="fixed inset-0 z-0 bg-cover bg-center filter blur-[6px] scale-105" style="background-image: url('assets/gallery-hero.jpg');"></div>
+<div class="fixed inset-0 z-0 bg-gray-950/60 dark:bg-gray-950/80 transition-colors duration-500"></div>
+
+<!-- Login Container -->
+<div class="relative z-10 w-full max-w-md my-8">
+    <div class="glass relative overflow-hidden rounded-[2.5rem] p-8 md:p-10 shadow-2xl bg-white/80 dark:bg-gray-950/80 border border-amber-100/20 dark:border-gray-800/80 transition-all duration-300">
+        
+        <!-- RTL & Dark Mode Toggles (Top Right of Card) -->
+        <div class="absolute top-6 right-6 flex items-center gap-2">
+            <button class="js-dir-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100/50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 border border-gray-200/20 dark:border-gray-700/50 text-gray-800 dark:text-white transition-all text-[9px] font-black uppercase" aria-label="Toggle text direction">
+                <span>LTR</span>
+            </button>
+            <button class="js-theme-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100/50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 border border-gray-200/20 dark:border-gray-700/50 text-gray-800 dark:text-white transition-all" aria-label="Toggle theme">
+                <i class="fas fa-moon text-xs"></i>
+            </button>
+        </div>
+
+        <!-- Logo inside Card -->
+        <a href="index.html" class="flex flex-col items-center mb-8 group">
+            <span class="text-4xl mb-2 animate-bounce-gentle group-hover:scale-110 transition-transform">🍪</span>
+            <h1 class="text-2xl font-black text-amber-700 dark:text-amber-500 uppercase tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" style="font-family: 'Playfair Display', serif;">
+                CookieCraft
+            </h1>
+            <p class="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-1">Sign In to Your Account</p>
+        </a>
+
+        <!-- Form -->
+        <form id="login-form" class="space-y-5" onsubmit="handleLogin(event)">
+            <!-- Email Field -->
+            <div class="space-y-1.5">
+                <label for="email" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Email Address</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <input type="email" id="email" required placeholder="name@example.com" class="w-full pl-11 pr-4 py-3.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="space-y-1.5">
+                <label for="password" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Password</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" id="password" required placeholder="••••••••" class="w-full pl-11 pr-11 py-3.5 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                    <button type="button" onclick="togglePasswordVisibility('password', this)" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-amber-600 transition-colors rtl:right-auto rtl:left-0 rtl:pr-0 rtl:pl-4" aria-label="Toggle password visibility">
+                        <i class="fas fa-eye text-sm" id="password-toggle-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="flex items-center justify-between text-xs pt-1">
+                <label class="flex items-center gap-2 text-gray-600 dark:text-gray-400 cursor-pointer">
+                    <input type="checkbox" class="w-4 h-4 rounded border-gray-300 dark:border-gray-700 text-amber-600 focus:ring-amber-500 bg-white/50 dark:bg-gray-900/50 transition-colors">
+                    <span class="font-bold select-none text-[11px] uppercase tracking-wider">Remember Me</span>
+                </label>
+                <a href="#" class="text-amber-700 dark:text-amber-500 hover:underline font-bold text-[11px] uppercase tracking-wider">Forgot Password?</a>
+            </div>
+
+            <!-- CTA Button -->
+            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-xl font-black uppercase tracking-widest text-xs transition-all active:scale-95 shadow-lg shadow-amber-600/20 btn-shine mt-2">
+                Sign In
+            </button>
+
+            <!-- Divider -->
+            <div class="relative flex items-center justify-center my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200 dark:border-gray-800"></div>
+                </div>
+                <span class="relative z-10 px-4 text-[9px] font-black uppercase tracking-widest text-gray-400 bg-white/90 dark:bg-gray-950/90 rounded-full py-0.5 border border-gray-100 dark:border-gray-800 transition-colors">Or Sign In With</span>
+            </div>
+
+            <!-- Social Logins -->
+            <div class="grid grid-cols-3 gap-3">
+                <button type="button" class="flex items-center justify-center py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-gray-900/50 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all active:scale-95 text-gray-700 dark:text-gray-200" aria-label="Sign in with Google">
+                    <i class="fab fa-google text-base"></i>
+                </button>
+                <button type="button" class="flex items-center justify-center py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-gray-900/50 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all active:scale-95 text-gray-700 dark:text-gray-200" aria-label="Sign in with Apple">
+                    <i class="fab fa-apple text-base"></i>
+                </button>
+                <button type="button" class="flex items-center justify-center py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white/50 dark:bg-gray-900/50 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md transition-all active:scale-95 text-gray-700 dark:text-gray-200" aria-label="Sign in with Facebook">
+                    <i class="fab fa-facebook-f text-base"></i>
+                </button>
+            </div>
+        </form>
+
+        <!-- Footer Link -->
+        <div class="mt-8 text-center text-xs border-t border-gray-100 dark:border-gray-800 pt-6">
+            <span class="text-gray-500 dark:text-gray-400">Don't have an account?</span>
+            <a href="signup.html" class="text-amber-700 dark:text-amber-500 font-black uppercase tracking-widest hover:underline ml-1 rtl:mr-1">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+<script src="components.js"></script>
+<script>
+    function togglePasswordVisibility(fieldId, btn) {
+        const field = document.getElementById(fieldId);
+        const icon = btn.querySelector('i');
+        if (field.type === 'password') {
+            field.type = 'text';
+            icon.className = 'fas fa-eye-slash text-sm';
+        } else {
+            field.type = 'password';
+            icon.className = 'fas fa-eye text-sm';
+        }
+    }
+
+    function handleLogin(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        btn.innerHTML = '<i class="fas fa-cookie-bite animate-spin mr-2"></i> Signing In...';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1000);
+    }
+</script>
+</body>
+</html>

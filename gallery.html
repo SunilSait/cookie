@@ -16,10 +16,21 @@
         }
     </script>
     <style>
-        .masonry { columns: 1; column-gap: 1.5rem; }
-        @media (min-width: 640px) { .masonry { columns: 2; } }
-        @media (min-width: 1024px) { .masonry { columns: 3; } }
-        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        .gallery-grid-layout {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .gallery-grid-layout {
+                grid-template-cols: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .gallery-grid-layout {
+                grid-template-cols: repeat(3, 1fr);
+            }
+        }
 
         /* Lightbox */
         .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 2rem; }
@@ -36,9 +47,9 @@
 <div id="navbar-container"></div>
 
 <!-- ===== PAGE HERO ===== -->
-<section class="hero-lock relative h-[50vh] md:h-[60vh] flex items-center justify-center bg-gray-950 overflow-hidden">
+<section class="hero-lock relative min-h-[45vh] md:h-[50vh] lg:h-[60vh] py-16 md:py-0 flex items-center justify-center bg-gray-950 overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1920&auto=format" alt="Cookie gallery" class="w-full h-full object-cover opacity-40">
+        <img src="assets/gallery-hero.jpg" alt="Cookie gallery" class="w-full h-full object-cover opacity-40">
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80"></div>
     </div>
     <div class="relative z-10 text-center px-4">
@@ -58,20 +69,20 @@
 
         <!-- Filter Tabs -->
         <div class="flex flex-wrap justify-center gap-2 mb-12 reveal">
-            <button onclick="filterGallery('all')" class="gallery-tab active-gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-amber-600 text-white">All</button>
-            <button onclick="filterGallery('cookies')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Cookies</button>
-            <button onclick="filterGallery('baking')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Baking</button>
-            <button onclick="filterGallery('events')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Events</button>
-            <button onclick="filterGallery('team')" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Our Team</button>
+            <button onclick="filterGallery('all', this)" class="gallery-tab active-gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-amber-600 text-white">All</button>
+            <button onclick="filterGallery('cookies', this)" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Cookies</button>
+            <button onclick="filterGallery('baking', this)" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Baking</button>
+            <button onclick="filterGallery('events', this)" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Events</button>
+            <button onclick="filterGallery('team', this)" class="gallery-tab px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white">Our Team</button>
         </div>
 
         <!-- Masonry Gallery -->
-        <div class="masonry reveal" id="gallery-grid">
+        <div class="gallery-grid-layout" id="gallery-grid">
 
             <!-- Image 1 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format" alt="Chocolate chip cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/chocolate-chip.jpg" alt="Chocolate chip cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Classic Chocolate Chip</h3>
@@ -82,9 +93,9 @@
             </div>
 
             <!-- Image 2 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format" alt="Fresh baked bread" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/fresh-bread.jpg" alt="Fresh baked bread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Fresh From the Oven</h3>
@@ -95,9 +106,9 @@
             </div>
 
             <!-- Image 3 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format" alt="Assorted cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/assorted-cookies.jpg" alt="Assorted cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Assorted Cookie Tray</h3>
@@ -108,9 +119,9 @@
             </div>
 
             <!-- Image 4 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="team" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?q=80&w=600&auto=format" alt="Our bakers" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="team" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/our-bakers.jpg" alt="Our bakers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Our Baker Team</h3>
@@ -121,9 +132,9 @@
             </div>
 
             <!-- Image 5 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="events" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1513135065346-a098a63a71ee?q=80&w=600&auto=format" alt="Gift boxes" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="events" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/gift-boxes.jpg" alt="Gift boxes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Gift Boxes Ready</h3>
@@ -134,9 +145,9 @@
             </div>
 
             <!-- Image 6 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=600&auto=format" alt="Macarons" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/macarons.jpg" alt="Macarons" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">French Macarons</h3>
@@ -147,9 +158,9 @@
             </div>
 
             <!-- Image 7 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=600&auto=format" alt="Baker at work" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/baker-work.jpg" alt="Baker at work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Crafting Perfection</h3>
@@ -160,9 +171,9 @@
             </div>
 
             <!-- Image 8 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format" alt="Brownies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/brownies.jpg" alt="Brownies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Fudge Brownies</h3>
@@ -173,9 +184,9 @@
             </div>
 
             <!-- Image 9 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="events" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=600&auto=format" alt="Cookie workshop" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="events" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/cookie-workshop.jpg" alt="Cookie workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Baking Workshop</h3>
@@ -186,9 +197,9 @@
             </div>
 
             <!-- Image 10 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=600&auto=format" alt="Oatmeal cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="cookies" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/oatmeal-cookies.jpg" alt="Oatmeal cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Oatmeal Cookies</h3>
@@ -199,9 +210,9 @@
             </div>
 
             <!-- Image 11 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="team" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?q=80&w=600&auto=format" alt="Team baking" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="team" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/team-baking.jpg" alt="Team baking" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Team at Work</h3>
@@ -212,9 +223,9 @@
             </div>
 
             <!-- Image 12 -->
-            <div class="masonry-item gallery-item cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=600&auto=format" alt="Decorating cookies" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="gallery-item reveal cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                    <img src="assets/decorating-cookies.jpg" alt="Decorating cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Cookie Decorating</h3>
@@ -300,7 +311,7 @@
 <script src="components.js"></script>
 <script>
     // Gallery filter
-    function filterGallery(category) {
+    function filterGallery(category, btn) {
         const items = document.querySelectorAll('.gallery-item');
         const tabs = document.querySelectorAll('.gallery-tab');
 
@@ -308,12 +319,17 @@
             tab.classList.remove('active-gallery-tab', 'bg-amber-600', 'text-white');
             tab.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-500');
         });
-        event.target.classList.add('active-gallery-tab', 'bg-amber-600', 'text-white');
-        event.target.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-500');
+        
+        const targetBtn = btn || (window.event && window.event.target);
+        if (targetBtn) {
+            targetBtn.classList.add('active-gallery-tab', 'bg-amber-600', 'text-white');
+            targetBtn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-500');
+        }
 
         items.forEach(item => {
             if (category === 'all' || item.dataset.category === category) {
                 item.style.display = '';
+                item.classList.add('active');
                 item.style.opacity = '0';
                 setTimeout(() => {
                     item.style.opacity = '1';
@@ -346,3 +362,4 @@
 </script>
 </body>
 </html>
+

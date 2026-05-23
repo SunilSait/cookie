@@ -66,14 +66,19 @@
                     <!-- Right Side Actions -->
                     <div class="flex items-center space-x-3">
                         <!-- RTL/LTR Toggle -->
-                        <button id="dir-toggle" class="js-dir-toggle w-12 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-amber-500/50 hover:bg-white dark:hover:bg-gray-700 transition-all shadow-sm group" aria-label="Toggle text direction">
+                        <button id="dir-toggle" class="js-dir-toggle hidden lg:flex w-12 h-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-amber-500/50 hover:bg-white dark:hover:bg-gray-700 transition-all shadow-sm group" aria-label="Toggle text direction">
                             <span class="text-[10px] font-black text-gray-600 dark:text-gray-400 group-hover:text-amber-600 transition-colors uppercase">LTR</span>
                         </button>
 
                         <!-- Theme Toggle -->
-                        <button id="theme-toggle-desktop" class="js-theme-toggle w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-amber-500/50 hover:bg-white dark:hover:bg-gray-700 transition-all shadow-sm group" aria-label="Toggle theme">
+                        <button id="theme-toggle-desktop" class="js-theme-toggle hidden lg:flex w-10 h-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-amber-500/50 hover:bg-white dark:hover:bg-gray-700 transition-all shadow-sm group" aria-label="Toggle theme">
                             <i class="fas fa-moon text-sm text-gray-600 dark:text-gray-400 group-hover:text-amber-600 transition-colors"></i>
                         </button>
+
+                        <!-- Sign In Link -->
+                        <a href="login.html" class="hidden md:inline-block text-xs font-black uppercase tracking-widest text-gray-700 dark:text-gray-300 hover:text-amber-600 transition-colors mr-2">
+                            Sign In
+                        </a>
 
                         <!-- Order CTA (Desktop) -->
                         <a href="shop.html" class="hidden md:inline-block bg-amber-600 text-white px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-700 shadow-lg shadow-amber-600/20 transition-all active:scale-95 btn-shine">
@@ -105,9 +110,14 @@
                                 <span class="text-xs font-bold uppercase tracking-widest">Theme</span>
                             </button>
                         </div>
-                        <a href="shop.html" class="w-full sm:w-auto text-center bg-amber-600 text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-amber-700 shadow-lg transition-all">
-                            Order Now
-                        </a>
+                        <div class="flex gap-2 w-full sm:w-auto">
+                            <a href="login.html" class="flex-1 sm:flex-none text-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-xs border border-gray-200 dark:border-gray-700 hover:bg-gray-200 transition-all">
+                                Sign In
+                            </a>
+                            <a href="shop.html" class="flex-1 sm:flex-none text-center bg-amber-600 text-white px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-amber-700 shadow-lg transition-all">
+                                Order Now
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,6 +160,8 @@
                             <li><a href="about.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">About Us</a></li>
                             <li><a href="shop.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Shop Cookies</a></li>
                             <li><a href="gallery.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Gallery</a></li>
+                            <li><a href="login.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Sign In</a></li>
+                            <li><a href="signup.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Register</a></li>
                         </ul>
                     </div>
 
@@ -158,7 +170,7 @@
                         <h4 class="font-bold mb-6 text-gray-900 dark:text-white uppercase text-xs tracking-widest">Support</h4>
                         <ul class="text-sm space-y-3 text-gray-500 dark:text-gray-400">
                             <li><a href="contact.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Contact Us</a></li>
-                            <li><a href="comingsoon.html" class="hover:text-amber-700 hover:pl-2 transition-all duration-200 block text-amber-600 dark:text-amber-500 font-bold">Coming Soon 🚀</a></li>
+                            <li><a href="comingsoon.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Coming Soon 🚀</a></li>
                             <li><a href="404.html" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">404 Page</a></li>
                             <li><a href="#" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Shipping Policy</a></li>
                             <li><a href="#" class="hover:text-amber-600 hover:pl-2 transition-all duration-200 block">Returns & Refunds</a></li>

@@ -45,6 +45,7 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 body {
@@ -477,3 +478,62 @@ textarea:focus-visible {
     right: 100%;
     left: auto;
 }
+
+/* Logical Position Flipping for RTL */
+[dir="rtl"] .absolute.top-4.left-4 {
+    left: auto !important;
+    right: 1rem !important;
+}
+[dir="rtl"] .absolute.top-4.right-4 {
+    right: auto !important;
+    left: 1rem !important;
+}
+[dir="rtl"] .absolute.-top-5.left-8 {
+    left: auto !important;
+    right: 2rem !important;
+}
+[dir="rtl"] .absolute.-bottom-6.-left-6 {
+    left: auto !important;
+    right: -1.5rem !important;
+}
+[dir="rtl"] .absolute.-top-4.-right-4 {
+    right: auto !important;
+    left: -1rem !important;
+}
+[dir="rtl"] .absolute.bottom-8.right-8 {
+    right: auto !important;
+    left: 2rem !important;
+}
+[dir="rtl"] .absolute.top-10.right-10 {
+    right: auto !important;
+    left: 2.5rem !important;
+}
+[dir="rtl"] .absolute.bottom-20.right-20 {
+    right: auto !important;
+    left: 5rem !important;
+}
+[dir="rtl"] .absolute.top-40.right-20 {
+    right: auto !important;
+    left: 5rem !important;
+}
+[dir="rtl"] .absolute.bottom-40.left-20 {
+    left: auto !important;
+    right: 5rem !important;
+}
+[dir="rtl"] .absolute.top-20.left-10 {
+    left: auto !important;
+    right: 2.5rem !important;
+}
+[dir="rtl"] .border-l-4 {
+    border-left: none !important;
+    border-right: 4px solid var(--brand, #d97706) !important;
+    padding-left: 0 !important;
+    padding-right: 1.5rem !important;
+}
+[dir="rtl"] .border-l-4.border-gray-900 {
+    border-right-color: #111827 !important;
+}
+.dark [dir="rtl"] .border-l-4.border-gray-900 {
+    border-right-color: #9ca3af !important;
+}
+
