@@ -46,7 +46,7 @@
         }).join('');
 
         return `
-        <div id="scroll-progress" style="width: 0%"></div>
+
         <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
                 <div class="flex justify-between items-center h-20">
@@ -76,7 +76,7 @@
                         </button>
 
                         <!-- Sign In Link -->
-                        <a href="login.html" class="hidden lg:inline-block text-xs font-black uppercase tracking-widest text-gray-700 dark:text-gray-300 hover:text-amber-600 transition-colors mr-2">
+                        <a href="login.html" class="hidden lg:inline-block border border-amber-600 text-amber-600 dark:text-amber-500 dark:border-amber-500 hover:bg-amber-600 hover:text-white dark:hover:bg-amber-600 dark:hover:text-white px-3 py-2 xl:px-5 xl:py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all mr-2 shadow-sm">
                             Sign In
                         </a>
 
@@ -111,7 +111,7 @@
                             </button>
                         </div>
                         <div class="flex gap-2 w-full sm:w-auto">
-                            <a href="login.html" class="flex-1 sm:flex-none text-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-xs border border-gray-200 dark:border-gray-700 hover:bg-gray-200 transition-all">
+                            <a href="login.html" class="flex-1 sm:flex-none text-center border border-amber-600 text-amber-600 dark:text-amber-500 dark:border-amber-500 hover:bg-amber-600 hover:text-white dark:hover:bg-amber-600 dark:hover:text-white px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all">
                                 Sign In
                             </a>
                             <a href="shop.html" class="flex-1 sm:flex-none text-center bg-amber-600 text-white px-6 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-amber-700 shadow-lg transition-all">
@@ -241,8 +241,7 @@
         initNewsletter();
         // Initialize scroll reveal
         initScrollReveal();
-        // Remove page loader
-        removePageLoader();
+
     }
 
     // --- Theme Logic ---
@@ -336,19 +335,11 @@
 
     // --- Scroll Effects ---
     function initScrollEffects() {
-        const scrollProgress = document.getElementById('scroll-progress');
         const backToTop = document.getElementById('back-to-top');
         const nav = document.getElementById('main-nav');
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-
-            // Scroll progress bar
-            if (scrollProgress) {
-                scrollProgress.style.width = scrollPercent + '%';
-            }
 
             // Back to top visibility
             if (backToTop) {
@@ -412,16 +403,7 @@
         revealElements.forEach(el => observer.observe(el));
     }
 
-    // --- Page Loader ---
-    function removePageLoader() {
-        const loader = document.getElementById('page-loader');
-        if (loader) {
-            setTimeout(() => {
-                loader.classList.add('loaded');
-                setTimeout(() => loader.remove(), 500);
-            }, 300);
-        }
-    }
+
 
     // --- DOM Ready ---
     if (document.readyState === 'loading') {

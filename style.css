@@ -263,16 +263,7 @@ body {
     transform: rotateY(180deg);
 }
 
-/* --- Scroll Progress Bar --- */
-#scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #d97706, #f59e0b);
-    z-index: 9999;
-    transition: width 0.1s ease;
-}
+
 
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar {
@@ -296,40 +287,7 @@ body {
     background: #b45309;
 }
 
-/* --- Loading Overlay --- */
-#page-loader {
-    position: fixed;
-    inset: 0;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    transition: opacity 0.5s ease;
-}
 
-.dark #page-loader {
-    background: #0f172a;
-}
-
-#page-loader.loaded {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loader-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid #f1f5f9;
-    border-top-color: #d97706;
-    border-radius: 50%;
-    animation: spin-slow 0.8s linear infinite;
-}
-
-.dark .loader-spinner {
-    border-color: #334155;
-    border-top-color: #d97706;
-}
 
 /* --- Responsive Utility --- */
 @media (max-width: 768px) {
@@ -478,10 +436,7 @@ textarea:focus-visible {
     border-bottom-right-radius: 0.75rem;
 }
 
-[dir="rtl"] #scroll-progress {
-    left: auto;
-    right: 0;
-}
+
 
 [dir="rtl"] #back-to-top {
     right: auto;
