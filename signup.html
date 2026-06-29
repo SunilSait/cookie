@@ -23,14 +23,14 @@
         }
     </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
 
 <!-- Decorative Background Circles -->
 <div class="fixed inset-0 z-0 bg-cover bg-center filter blur-[6px] scale-105" style="background-image: url('assets/gallery-hero.jpg');"></div>
 <div class="fixed inset-0 z-0 bg-gray-950/60 dark:bg-gray-950/80 transition-colors duration-500"></div>
 
 <!-- RTL & Dark Mode Toggles (Outside the Card) -->
-<div class="relative z-10 w-full max-w-md flex justify-end items-center gap-2 px-2 mb-2">
+<div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-2">
     <button class="js-dir-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-white/10 dark:bg-gray-950/40 hover:bg-white/20 dark:hover:bg-gray-950/60 border border-white/10 dark:border-gray-800/50 text-white transition-all text-[9px] font-black uppercase" aria-label="Toggle text direction">
         <span>LTR</span>
     </button>
@@ -40,7 +40,7 @@
 </div>
 
 <!-- Sign Up Container -->
-<div class="relative z-10 w-full max-w-md mb-8">
+<div class="relative z-10 w-full max-w-md mt-16 mb-8 sm:my-8">
     <div class="glass relative overflow-hidden rounded-[2.5rem] p-8 md:p-10 shadow-2xl bg-white/80 dark:bg-gray-950/80 border border-amber-100/20 dark:border-gray-800/80 transition-all duration-300">
         
 
