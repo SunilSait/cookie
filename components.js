@@ -138,7 +138,7 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+            <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-all duration-300 shadow-xl z-50">
                 <div class="max-w-7xl mx-auto px-4 pt-4 pb-8">
                     <div class="grid grid-cols-1 gap-1 mb-6">
                         ${navLinksMobile}
