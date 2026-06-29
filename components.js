@@ -9,6 +9,48 @@
     const BRAND_TAGLINE = 'Artisan Cookies, Baked with Love';
     const CURRENT_YEAR = new Date().getFullYear();
 
+    // Reusable Professional SVG Logo Mark (Cookie Decorating & Baking Studio)
+    const LOGO_SVG = `
+    <svg class="w-full h-full group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="logo-cookie-grad" x1="10%" y1="10%" x2="90%" y2="90%">
+                <stop offset="0%" stop-color="#F59E0B" />
+                <stop offset="50%" stop-color="#D97706" />
+                <stop offset="100%" stop-color="#B45309" />
+            </linearGradient>
+            <linearGradient id="logo-bag-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#F472B6" />
+                <stop offset="100%" stop-color="#DB2777" />
+            </linearGradient>
+            <filter id="logo-glow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#D97706" flood-opacity="0.3" />
+            </filter>
+        </defs>
+        <!-- Cookie Body -->
+        <circle cx="46" cy="58" r="34" fill="url(#logo-cookie-grad)" filter="url(#logo-glow)" />
+        <!-- Cookie bottom shadow -->
+        <path d="M15 68 C21 80, 37 90, 52 90 C69 90, 78 78, 78 58 C78 61, 72 86, 46 86 C24 86, 15 72, 15 68 Z" fill="#78350F" opacity="0.15" />
+        <!-- Royal icing swirl decoration on cookie -->
+        <path d="M22 52 C28 42, 36 62, 44 50 C52 38, 58 58, 66 48" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.92" />
+        <!-- Icing dots bottom row -->
+        <circle cx="28" cy="70" r="3" fill="#FFFFFF" opacity="0.88" />
+        <circle cx="40" cy="75" r="2.5" fill="#FFFFFF" opacity="0.85" />
+        <circle cx="52" cy="73" r="3" fill="#FFFFFF" opacity="0.88" />
+        <circle cx="63" cy="67" r="2.5" fill="#FFFFFF" opacity="0.85" />
+        <!-- Icing dots top row -->
+        <circle cx="34" cy="40" r="2" fill="#FFFFFF" opacity="0.7" />
+        <circle cx="50" cy="38" r="2" fill="#FFFFFF" opacity="0.7" />
+        <!-- Piping bag -->
+        <path d="M74 4 L86 2 L80 24 L76 24 Z" fill="url(#logo-bag-grad)" />
+        <path d="M76 24 L80 24 L78 30 Z" fill="#9D174D" />
+        <!-- Icing stream from piping bag to cookie -->
+        <path d="M78 30 Q76 38, 66 48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9" />
+        <!-- Sparkle large -->
+        <path d="M90 32 L91.5 37 L96 38.5 L91.5 40 L90 45 L88.5 40 L84 38.5 L88.5 37 Z" fill="#FFF" opacity="0.95" />
+        <!-- Sparkle small -->
+        <path d="M16 34 L17 37 L20 38 L17 39 L16 42 L15 39 L12 38 L15 37 Z" fill="#FBBF24" opacity="0.8" />
+    </svg>`;
+
     const NAV_LINKS = [
         { label: 'Home', href: 'index.html', icon: 'fa-home' },
         { label: 'Home 2', href: 'home2.html', icon: 'fa-door-open' },
@@ -52,7 +94,9 @@
                 <div class="flex justify-between items-center h-20">
                     <!-- Logo -->
                     <a href="index.html" class="flex items-center space-x-2 group">
-                        <span class="text-2xl">🍪</span>
+                        <div class="w-8 h-8 flex-shrink-0">
+                            ${LOGO_SVG}
+                        </div>
                         <span class="font-black text-xl tracking-tight text-amber-700 dark:text-amber-500 group-hover:text-amber-600 transition-colors" style="font-family: 'Playfair Display', serif;">
                             ${BRAND_NAME}
                         </span>
@@ -140,7 +184,9 @@
                     <!-- Brand Column -->
                     <div class="lg:col-span-1 space-y-6">
                         <a href="index.html" class="flex items-center space-x-2 group">
-                            <span class="text-3xl">🍪</span>
+                            <div class="w-9 h-9 flex-shrink-0">
+                                ${LOGO_SVG}
+                            </div>
                             <span class="font-black text-xl tracking-tight text-amber-700 dark:text-amber-500" style="font-family: 'Playfair Display', serif;">${BRAND_NAME}</span>
                         </a>
                         <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
@@ -180,7 +226,7 @@
 
                     <!-- Newsletter -->
                     <div class="bg-amber-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-amber-100 dark:border-gray-700 transition-all hover:shadow-lg">
-                        <h4 class="font-bold mb-2 text-gray-900 dark:text-white">Stay Sweet 🍪</h4>
+                        <h4 class="font-bold mb-2 text-gray-900 dark:text-white">Stay Sweet <svg class="inline w-5 h-5 -mt-0.5" viewBox="0 0 100 100" fill="none"><circle cx="46" cy="58" r="36" fill="#D97706"/><path d="M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48" stroke="#FFF" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="28" cy="72" r="3.5" fill="#FFF"/><circle cx="52" cy="73" r="3.5" fill="#FFF"/></svg></h4>
                         <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Get exclusive offers, new flavors & baking tips.</p>
                         <form id="newsletter-form" class="space-y-2">
                             <input type="email" required placeholder="Your Email" 

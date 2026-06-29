@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shop our handcrafted artisan cookies - chocolate chip, oatmeal, macarons, brownies, gift boxes and more. Fresh baked daily.">
     <title>Shop Cookies | CookieCraft</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='cg' x1='10%25' y1='10%25' x2='90%25' y2='90%25'%3E%3Cstop offset='0%25' stop-color='%23F59E0B'/%3E%3Cstop offset='100%25' stop-color='%23B45309'/%3E%3C/linearGradient%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F472B6'/%3E%3Cstop offset='100%25' stop-color='%23DB2777'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='46' cy='58' r='36' fill='url(%23cg)'/%3E%3Cpath d='M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48' stroke='white' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='28' cy='72' r='3.5' fill='white'/%3E%3Ccircle cx='42' cy='76' r='3' fill='white'/%3E%3Ccircle cx='56' cy='74' r='3.5' fill='white'/%3E%3Cpath d='M76 4 L88 2 L82 24 L78 24 Z' fill='url(%23bg)'/%3E%3Cpath d='M78 24 L82 24 L80 30 Z' fill='%239D174D'/%3E%3Cpath d='M80 30 Q78 38,66 48' stroke='white' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -30,7 +30,9 @@
     </div>
     <div class="relative z-10 text-center px-4">
         <div class="inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md mb-6 animate-fade-in-down">
-            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">🛒 Free Shipping Over $50</span>
+            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] flex items-center">
+                <i class="fas fa-shipping-fast text-amber-500 mr-2 text-xs md:text-sm"></i> Free Shipping Over $50
+            </span>
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter animate-fade-in-up" style="font-family: 'Playfair Display', serif;">
             Our <span class="text-amber-500">Cookie</span> Shop
@@ -118,7 +120,7 @@
                     <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
                 </div>
                 <div class="relative aspect-square overflow-hidden bg-gray-100">
-                    <img src="assets/assorted-cookies.jpg" alt="Salted Caramel Bliss" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/salted-caramel.jpg" alt="Salted Caramel Bliss" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -248,7 +250,7 @@
                     <button class="w-9 h-9 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all shadow-sm"><i class="far fa-heart text-sm"></i></button>
                 </div>
                 <div class="relative aspect-square overflow-hidden bg-gray-100">
-                    <img src="assets/cookie-workshop.jpg" alt="Lemon Zest" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/lemon-zest.jpg" alt="Lemon Zest" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -286,7 +288,7 @@
             <!-- Plan 1 -->
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center group flex flex-col h-full">
                 <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl">🍪</span>
+                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="plan-cg" x1="10%" y1="10%" x2="90%" y2="90%"><stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#B45309"/></linearGradient></defs><circle cx="46" cy="58" r="36" fill="url(#plan-cg)"/><path d="M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48" stroke="#FFF" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="28" cy="72" r="3.5" fill="#FFF"/><circle cx="42" cy="76" r="3" fill="#FFF"/><circle cx="56" cy="74" r="3.5" fill="#FFF"/><path d="M76 4 L88 2 L82 24 L78 24 Z" fill="#F472B6"/><path d="M78 24 L82 24 L80 30 Z" fill="#9D174D"/></svg>
                 </div>
                 <h3 class="font-black text-xl mb-1 dark:text-white">Cookie Starter</h3>
                 <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">12 cookies / month</p>
@@ -307,7 +309,7 @@
             <div class="bg-amber-600 p-8 rounded-3xl shadow-2xl shadow-amber-500/20 hover:-translate-y-2 transition-all duration-500 text-center relative overflow-hidden group flex flex-col h-full">
                 <div class="absolute top-0 right-0 bg-white text-amber-700 text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase tracking-widest">Most Popular</div>
                 <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl">🎁</span>
+                    <i class="fas fa-heart text-3xl text-white"></i>
                 </div>
                 <h3 class="font-black text-xl mb-1 text-white">Cookie Lover</h3>
                 <p class="text-xs text-amber-200 uppercase tracking-widest mb-6">24 cookies / month</p>
@@ -327,7 +329,7 @@
             <!-- Plan 3 -->
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center group flex flex-col h-full">
                 <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6">
-                    <span class="text-3xl">👑</span>
+                    <i class="fas fa-crown text-3xl text-amber-600"></i>
                 </div>
                 <h3 class="font-black text-xl mb-1 dark:text-white">Cookie Royalty</h3>
                 <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">48 cookies / month</p>

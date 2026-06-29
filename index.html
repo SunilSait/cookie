@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CookieCraft - Premium artisan cookies handcrafted with love. Discover our signature flavors, custom gift boxes, and fresh-baked treats delivered to your door.">
     <title>CookieCraft | Artisan Cookies, Baked with Love</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='cg' x1='10%25' y1='10%25' x2='90%25' y2='90%25'%3E%3Cstop offset='0%25' stop-color='%23F59E0B'/%3E%3Cstop offset='100%25' stop-color='%23B45309'/%3E%3C/linearGradient%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F472B6'/%3E%3Cstop offset='100%25' stop-color='%23DB2777'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='46' cy='58' r='36' fill='url(%23cg)'/%3E%3Cpath d='M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48' stroke='white' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='28' cy='72' r='3.5' fill='white'/%3E%3Ccircle cx='42' cy='76' r='3' fill='white'/%3E%3Ccircle cx='56' cy='74' r='3.5' fill='white'/%3E%3Cpath d='M76 4 L88 2 L82 24 L78 24 Z' fill='url(%23bg)'/%3E%3Cpath d='M78 24 L82 24 L80 30 Z' fill='%239D174D'/%3E%3Cpath d='M80 30 Q78 38,66 48' stroke='white' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Floating Cookie Decorations -->
-    <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float hidden md:block">🍪</div>
+    <div class="absolute top-20 left-10 w-16 h-16 opacity-20 animate-float hidden md:block"><svg viewBox="0 0 100 100" fill="none"><circle cx="46" cy="58" r="36" fill="#D97706"/><path d="M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48" stroke="#FFF" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="28" cy="72" r="3.5" fill="#FFF"/><circle cx="42" cy="76" r="3" fill="#FFF"/><circle cx="56" cy="74" r="3.5" fill="#FFF"/><path d="M76 4 L88 2 L82 24 L78 24 Z" fill="#F472B6"/><path d="M78 24 L82 24 L80 30 Z" fill="#9D174D"/></svg></div>
     <div class="absolute top-40 right-20 text-4xl opacity-15 animate-float animation-delay-400 hidden md:block">🍩</div>
     <div class="absolute bottom-40 left-20 text-5xl opacity-10 animate-float animation-delay-800 hidden lg:block">🍰</div>
 
@@ -52,11 +52,27 @@
         
         <!-- Badge -->
         <div class="mb-6 opacity-0 animate-fade-in-down inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-3 sm:px-4 py-2 rounded-full backdrop-blur-md max-w-full">
-            <span class="relative flex h-2 w-2 flex-shrink-0">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-            </span>
-            <span class="text-amber-400 text-[9px] sm:text-[10px] md:text-xs font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] whitespace-nowrap">✨ New Summer Flavors Are Here</span>
+            <div class="w-5 h-5 flex-shrink-0">
+                <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="summer-cookie-grad" x1="10%" y1="10%" x2="90%" y2="90%">
+                            <stop offset="0%" stop-color="#F59E0B" />
+                            <stop offset="100%" stop-color="#B45309" />
+                        </linearGradient>
+                        <linearGradient id="summer-bag-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F472B6" />
+                            <stop offset="100%" stop-color="#DB2777" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="46" cy="58" r="36" fill="url(#summer-cookie-grad)" />
+                    <path d="M22 52 C28 42, 36 62, 44 50 C52 38, 58 58, 66 48" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                    <circle cx="28" cy="72" r="3.5" fill="#FFFFFF" />
+                    <circle cx="52" cy="73" r="3.5" fill="#FFFFFF" />
+                    <path d="M76 4 L88 2 L82 24 L78 24 Z" fill="url(#summer-bag-grad)" />
+                    <path d="M78 24 L82 24 L80 30 Z" fill="#9D174D" />
+                </svg>
+            </div>
+            <span class="text-amber-400 text-[9px] sm:text-[10px] md:text-xs font-black uppercase tracking-[0.1em] sm:tracking-[0.2em] whitespace-nowrap">New Summer Flavors Are Here</span>
         </div>
 
         <!-- Subtitle -->
@@ -79,10 +95,7 @@
 
         <!-- Stat Line -->
         <div class="opacity-0 animate-fade-in-up animation-delay-400 flex items-center space-x-6 text-white/40 font-mono text-[9px] uppercase tracking-widest mb-6">
-            <div class="flex items-center">
-                <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 animate-pulse"></span>
-                Baking Fresh Daily
-            </div>
+            <div>Baking Fresh Daily</div>
             <div>Since 2020</div>
             <div class="hidden sm:block">50,000+ Happy Customers</div>
         </div>
@@ -244,12 +257,11 @@
     <div class="relative overflow-hidden rounded-3xl bg-amber-600 p-8 md:p-12 shadow-2xl shadow-amber-500/20">
         <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
-        <div class="absolute top-10 right-10 text-8xl opacity-10 animate-float hidden md:block">🍪</div>
+        <div class="absolute top-10 right-10 w-24 h-24 opacity-10 animate-float hidden md:block"><svg viewBox="0 0 100 100" fill="none"><circle cx="46" cy="58" r="36" fill="#D97706"/><path d="M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48" stroke="#FFF" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="28" cy="72" r="3.5" fill="#FFF"/><circle cx="42" cy="76" r="3" fill="#FFF"/><circle cx="56" cy="74" r="3.5" fill="#FFF"/><path d="M76 4 L88 2 L82 24 L78 24 Z" fill="#F472B6"/></svg></div>
 
         <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
             <div class="max-w-xl">
                 <div class="inline-flex items-center space-x-2 bg-black/20 px-3 py-1 rounded-full text-white text-[10px] font-bold uppercase tracking-widest mb-4">
-                    <span class="flex h-2 w-2 rounded-full bg-white animate-pulse"></span>
                     <span>Limited Time Offer</span>
                 </div>
                 <h2 class="text-3xl md:text-5xl font-black text-white leading-tight" style="font-family: 'Playfair Display', serif;">
@@ -291,7 +303,7 @@
             <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 <div class="absolute top-4 left-4 z-10 bg-amber-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">#1 Best Seller</div>
                 <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                    <img src="assets/chocolate-chip.jpg" alt="Double Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/double-chocolate-chip.jpg" alt="Double Chocolate Chip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -324,7 +336,7 @@
             <div class="group relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 sm:col-span-2 sm:justify-self-center sm:max-w-[calc(50%-1rem)] sm:w-full lg:col-span-1 lg:justify-self-auto lg:max-w-none">
                 <div class="absolute top-4 left-4 z-10 bg-amber-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">New Flavor</div>
                 <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                    <img src="assets/assorted-cookies.jpg" alt="Salted Caramel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/salted-caramel.jpg" alt="Salted Caramel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <button class="w-full bg-white text-gray-900 py-3 rounded-xl font-bold text-sm hover:bg-amber-600 hover:text-white transition-colors">Add to Cart</button>
                     </div>
@@ -502,16 +514,12 @@
         <div class="relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-amber-50 dark:bg-gray-900 border border-amber-100 dark:border-gray-800 p-8 md:p-24 shadow-xl text-center">
             
             <!-- Decorative Blobs -->
-            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-[100px]"></div>
             <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-amber-200/60 dark:bg-amber-800/20 rounded-full blur-[80px]"></div>
 
             <div class="relative z-10 flex flex-col items-center">
                 <!-- Badge -->
                 <div class="inline-flex items-center space-x-2 bg-white dark:bg-gray-800 border border-amber-200 dark:border-gray-700 px-5 py-2 rounded-full mb-8 md:mb-10 shadow-sm">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
-                    </span>
                     <span class="text-gray-900 dark:text-white text-[10px] font-black uppercase tracking-[0.3em]">Freshly Baked Today</span>
                 </div>
 
@@ -541,10 +549,16 @@
                 </div>
 
                 <!-- Trust badges -->
-                <div class="mt-12 md:mt-16 flex flex-wrap justify-center items-center gap-4 md:gap-8 opacity-60">
-                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">🏆 Award Winning</span>
-                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">🌱 100% Organic</span>
-                    <span class="text-gray-400 dark:text-gray-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest">🚚 Same Day Delivery</span>
+                <div class="mt-12 md:mt-16 flex flex-wrap justify-center items-center gap-4 md:gap-8 opacity-80">
+                    <span class="flex items-center text-gray-500 dark:text-gray-400 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">
+                        <i class="fas fa-award text-amber-600 mr-2 text-sm"></i> Award Winning
+                    </span>
+                    <span class="flex items-center text-gray-500 dark:text-gray-400 text-[9px] md:text-[10px] font-black uppercase tracking-widest border-r border-gray-200 dark:border-gray-800 pr-4 md:pr-8">
+                        <i class="fas fa-leaf text-amber-600 mr-2 text-sm"></i> 100% Organic
+                    </span>
+                    <span class="flex items-center text-gray-500 dark:text-gray-400 text-[9px] md:text-[10px] font-black uppercase tracking-widest">
+                        <i class="fas fa-shipping-fast text-amber-600 mr-2 text-sm"></i> Same Day Delivery
+                    </span>
                 </div>
             </div>
         </div>

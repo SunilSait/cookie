@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Create a CookieCraft account to order fresh artisan cookies, configure subscriptions, and customize gift boxes.">
     <title>Sign Up | CookieCraft</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='cg' x1='10%25' y1='10%25' x2='90%25' y2='90%25'%3E%3Cstop offset='0%25' stop-color='%23F59E0B'/%3E%3Cstop offset='100%25' stop-color='%23B45309'/%3E%3C/linearGradient%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F472B6'/%3E%3Cstop offset='100%25' stop-color='%23DB2777'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='46' cy='58' r='36' fill='url(%23cg)'/%3E%3Cpath d='M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48' stroke='white' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='28' cy='72' r='3.5' fill='white'/%3E%3Ccircle cx='42' cy='76' r='3' fill='white'/%3E%3Ccircle cx='56' cy='74' r='3.5' fill='white'/%3E%3Cpath d='M76 4 L88 2 L82 24 L78 24 Z' fill='url(%23bg)'/%3E%3Cpath d='M78 24 L82 24 L80 30 Z' fill='%239D174D'/%3E%3Cpath d='M80 30 Q78 38,66 48' stroke='white' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -29,23 +29,54 @@
 <div class="fixed inset-0 z-0 bg-cover bg-center filter blur-[6px] scale-105" style="background-image: url('assets/gallery-hero.jpg');"></div>
 <div class="fixed inset-0 z-0 bg-gray-950/60 dark:bg-gray-950/80 transition-colors duration-500"></div>
 
+<!-- RTL & Dark Mode Toggles (Outside the Card) -->
+<div class="fixed top-6 right-6 z-50 flex items-center gap-2">
+    <button class="js-dir-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100/50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 border border-gray-200/20 dark:border-gray-700/50 text-gray-800 dark:text-white transition-all text-[9px] font-black uppercase" aria-label="Toggle text direction">
+        <span>LTR</span>
+    </button>
+    <button class="js-theme-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100/50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 border border-gray-200/20 dark:border-gray-700/50 text-gray-800 dark:text-white transition-all" aria-label="Toggle theme">
+        <i class="fas fa-moon text-xs"></i>
+    </button>
+</div>
+
 <!-- Sign Up Container -->
 <div class="relative z-10 w-full max-w-md my-8">
     <div class="glass relative overflow-hidden rounded-[2.5rem] p-8 md:p-10 shadow-2xl bg-white/80 dark:bg-gray-950/80 border border-amber-100/20 dark:border-gray-800/80 transition-all duration-300">
         
-        <!-- RTL & Dark Mode Toggles (Top Right of Card) -->
-        <div class="absolute top-6 right-6 flex items-center gap-2">
-            <button class="js-dir-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100/50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 border border-gray-200/20 dark:border-gray-700/50 text-gray-800 dark:text-white transition-all text-[9px] font-black uppercase" aria-label="Toggle text direction">
-                <span>LTR</span>
-            </button>
-            <button class="js-theme-toggle w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100/50 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-800 border border-gray-200/20 dark:border-gray-700/50 text-gray-800 dark:text-white transition-all" aria-label="Toggle theme">
-                <i class="fas fa-moon text-xs"></i>
-            </button>
-        </div>
 
-        <!-- Logo inside Card -->
-        <a href="index.html" class="flex items-center justify-center space-x-2 mb-8 group">
-            <span class="text-3xl group-hover:scale-110 transition-transform">🍪</span>
+        <a href="index.html" class="flex items-center justify-center space-x-3 mb-8 group">
+            <div class="w-10 h-10 flex-shrink-0">
+                <svg class="w-full h-full group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="signup-cookie-grad" x1="10%" y1="10%" x2="90%" y2="90%">
+                            <stop offset="0%" stop-color="#F59E0B" />
+                            <stop offset="50%" stop-color="#D97706" />
+                            <stop offset="100%" stop-color="#B45309" />
+                        </linearGradient>
+                        <linearGradient id="signup-bag-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F472B6" />
+                            <stop offset="100%" stop-color="#DB2777" />
+                        </linearGradient>
+                        <filter id="signup-glow" x="-10%" y="-10%" width="120%" height="120%">
+                            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#D97706" flood-opacity="0.3" />
+                        </filter>
+                    </defs>
+                    <circle cx="46" cy="58" r="34" fill="url(#signup-cookie-grad)" filter="url(#signup-glow)" />
+                    <path d="M15 68 C21 80, 37 90, 52 90 C69 90, 78 78, 78 58 C78 61, 72 86, 46 86 C24 86, 15 72, 15 68 Z" fill="#78350F" opacity="0.15" />
+                    <path d="M22 52 C28 42, 36 62, 44 50 C52 38, 58 58, 66 48" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.92" />
+                    <circle cx="28" cy="70" r="3" fill="#FFFFFF" opacity="0.88" />
+                    <circle cx="40" cy="75" r="2.5" fill="#FFFFFF" opacity="0.85" />
+                    <circle cx="52" cy="73" r="3" fill="#FFFFFF" opacity="0.88" />
+                    <circle cx="63" cy="67" r="2.5" fill="#FFFFFF" opacity="0.85" />
+                    <circle cx="34" cy="40" r="2" fill="#FFFFFF" opacity="0.7" />
+                    <circle cx="50" cy="38" r="2" fill="#FFFFFF" opacity="0.7" />
+                    <path d="M74 4 L86 2 L80 24 L76 24 Z" fill="url(#signup-bag-grad)" />
+                    <path d="M76 24 L80 24 L78 30 Z" fill="#9D174D" />
+                    <path d="M78 30 Q76 38, 66 48" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9" />
+                    <path d="M90 32 L91.5 37 L96 38.5 L91.5 40 L90 45 L88.5 40 L84 38.5 L88.5 37 Z" fill="#FFF" opacity="0.95" />
+                    <path d="M16 34 L17 37 L20 38 L17 39 L16 42 L15 39 L12 38 L15 37 Z" fill="#FBBF24" opacity="0.8" />
+                </svg>
+            </div>
             <span class="font-black text-2xl tracking-tight text-amber-700 dark:text-amber-500 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" style="font-family: 'Playfair Display', serif;">
                 CookieCraft
             </span>
@@ -57,10 +88,7 @@
             <div class="space-y-1">
                 <label for="firstname" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">First Name</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
-                        <i class="fas fa-user"></i>
-                    </span>
-                    <input type="text" id="firstname" required placeholder="John" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                    <input type="text" id="firstname" required placeholder="John" class="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all">
                 </div>
             </div>
 
@@ -68,10 +96,7 @@
             <div class="space-y-1">
                 <label for="lastname" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Last Name</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
-                        <i class="fas fa-user"></i>
-                    </span>
-                    <input type="text" id="lastname" required placeholder="Doe" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                    <input type="text" id="lastname" required placeholder="Doe" class="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all">
                 </div>
             </div>
 
@@ -79,10 +104,7 @@
             <div class="space-y-1">
                 <label for="email" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Email Address</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                    <input type="email" id="email" required placeholder="john.doe@example.com" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                    <input type="email" id="email" required placeholder="john.doe@example.com" class="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all">
                 </div>
             </div>
 
@@ -90,10 +112,7 @@
             <div class="space-y-1">
                 <label for="password" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Password</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    <input type="password" id="password" required placeholder="••••••••" class="w-full pl-11 pr-11 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                    <input type="password" id="password" required placeholder="••••••••" class="w-full pl-4 pr-11 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-11 rtl:pr-4">
                     <button type="button" onclick="togglePasswordVisibility('password', this)" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-amber-600 transition-colors rtl:right-auto rtl:left-0 rtl:pr-0 rtl:pl-4" aria-label="Toggle password visibility">
                         <i class="fas fa-eye text-sm" id="password-toggle-icon"></i>
                     </button>
@@ -104,10 +123,7 @@
             <div class="space-y-1">
                 <label for="confirm-password" class="block text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">Confirm Password</label>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 pointer-events-none rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                    <input type="password" id="confirm-password" required placeholder="••••••••" class="w-full pl-11 pr-11 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-4 rtl:pr-11">
+                    <input type="password" id="confirm-password" required placeholder="••••••••" class="w-full pl-4 pr-11 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-gray-900 dark:text-white placeholder-gray-400 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 outline-none transition-all rtl:pl-11 rtl:pr-4">
                     <button type="button" onclick="togglePasswordVisibility('confirm-password', this)" class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-amber-600 transition-colors rtl:right-auto rtl:left-0 rtl:pr-0 rtl:pl-4" aria-label="Toggle password visibility">
                         <i class="fas fa-eye text-sm" id="confirm-password-toggle-icon"></i>
                     </button>

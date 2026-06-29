@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Browse our gallery of beautifully crafted artisan cookies, behind-the-scenes baking moments, and happy customers.">
     <title>Gallery | CookieCraft</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='cg' x1='10%25' y1='10%25' x2='90%25' y2='90%25'%3E%3Cstop offset='0%25' stop-color='%23F59E0B'/%3E%3Cstop offset='100%25' stop-color='%23B45309'/%3E%3C/linearGradient%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23F472B6'/%3E%3Cstop offset='100%25' stop-color='%23DB2777'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='46' cy='58' r='36' fill='url(%23cg)'/%3E%3Cpath d='M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48' stroke='white' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='28' cy='72' r='3.5' fill='white'/%3E%3Ccircle cx='42' cy='76' r='3' fill='white'/%3E%3Ccircle cx='56' cy='74' r='3.5' fill='white'/%3E%3Cpath d='M76 4 L88 2 L82 24 L78 24 Z' fill='url(%23bg)'/%3E%3Cpath d='M78 24 L82 24 L80 30 Z' fill='%239D174D'/%3E%3Cpath d='M80 30 Q78 38,66 48' stroke='white' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -40,7 +40,9 @@
     </div>
     <div class="relative z-10 text-center px-4">
         <div class="inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md mb-6 animate-fade-in-down">
-            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">📸 Visual Feast</span>
+            <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] flex items-center">
+                <i class="fas fa-camera text-amber-500 mr-2 text-xs md:text-sm"></i> Visual Feast
+            </span>
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter animate-fade-in-up" style="font-family: 'Playfair Display', serif;">
             Our <span class="text-amber-500">Gallery</span>
@@ -81,7 +83,7 @@
             <!-- Image 2 -->
             <div class="gallery-item reveal cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
                 <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
-                    <img src="assets/fresh-bread.jpg" alt="Fresh baked bread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/gallery-fresh-oven.jpg" alt="Fresh baked cookies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Fresh From the Oven</h3>
@@ -107,7 +109,7 @@
             <!-- Image 4 -->
             <div class="gallery-item reveal cursor-pointer group" data-category="team" onclick="openLightbox(this)">
                 <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
-                    <img src="assets/our-bakers.jpg" alt="Our bakers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/gallery-team.jpg" alt="Our bakers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Our Baker Team</h3>
@@ -146,7 +148,7 @@
             <!-- Image 7 -->
             <div class="gallery-item reveal cursor-pointer group" data-category="baking" onclick="openLightbox(this)">
                 <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
-                    <img src="assets/baker-work.jpg" alt="Baker at work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/blog-chocolate-chip.jpg" alt="Baker at work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Crafting Perfection</h3>
@@ -172,7 +174,7 @@
             <!-- Image 9 -->
             <div class="gallery-item reveal cursor-pointer group" data-category="events" onclick="openLightbox(this)">
                 <div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
-                    <img src="assets/cookie-workshop.jpg" alt="Cookie workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="assets/about-tour.jpg" alt="Cookie workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white font-bold text-lg">Baking Workshop</h3>
@@ -273,7 +275,9 @@
 <section class="py-16 bg-gray-50 dark:bg-gray-900/50 transition-colors duration-300">
     <div class="max-w-4xl mx-auto px-4 text-center reveal">
         <div class="bg-white dark:bg-gray-800 p-10 md:p-14 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-xl">
-            <div class="text-5xl mb-4">📸</div>
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 mb-6">
+                <i class="fas fa-camera-retro text-3xl text-amber-600"></i>
+            </div>
             <h3 class="text-2xl md:text-3xl font-black dark:text-white mb-4" style="font-family: 'Playfair Display', serif;">
                 Share Your <span class="text-amber-600">Cookie Moments</span>
             </h3>
