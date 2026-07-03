@@ -31,7 +31,7 @@
     <div class="relative z-10 text-center px-4">
         <div class="inline-flex items-center space-x-2 bg-amber-600/20 border border-amber-600/30 px-4 py-2 rounded-full backdrop-blur-md mb-6 animate-fade-in-down">
             <span class="text-amber-400 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] flex items-center">
-                <i class="fas fa-shipping-fast text-amber-500 mr-2 text-xs md:text-sm"></i> Free Shipping Over $50
+                Free Shipping Over $50
             </span>
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter animate-fade-in-up" style="font-family: 'Playfair Display', serif;">
@@ -331,8 +331,8 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
             <!-- Plan 1 -->
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center group flex flex-col h-full">
-                <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="plan-cg" x1="10%" y1="10%" x2="90%" y2="90%"><stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#B45309"/></linearGradient></defs><circle cx="46" cy="58" r="36" fill="url(#plan-cg)"/><path d="M22 52 C28 42,36 62,44 50 C52 38,58 58,66 48" stroke="#FFF" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="28" cy="72" r="3.5" fill="#FFF"/><circle cx="42" cy="76" r="3" fill="#FFF"/><circle cx="56" cy="74" r="3.5" fill="#FFF"/><path d="M76 4 L88 2 L82 24 L78 24 Z" fill="#F472B6"/><path d="M78 24 L82 24 L80 30 Z" fill="#9D174D"/></svg>
+                <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-box-open text-2xl text-amber-600"></i>
                 </div>
                 <h3 class="font-black text-xl mb-1 dark:text-white">Cookie Starter</h3>
                 <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">12 cookies / month</p>
@@ -341,10 +341,10 @@
                     <span class="text-gray-400 text-sm">/month</span>
                 </div>
                 <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-3 mb-8 text-left">
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>12 cookies per delivery</li>
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>Choose 2 flavors</li>
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>Free shipping</li>
-                    <li class="flex items-center text-gray-300 dark:text-gray-600"><i class="fas fa-times text-gray-300 dark:text-gray-600 mr-3 text-xs"></i>Priority delivery</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>12 cookies per delivery</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>Choose 2 flavors</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>Free shipping</li>
+                    <li class="flex items-center gap-3 text-gray-300 dark:text-gray-600"><i class="fas fa-circle-xmark text-gray-300 dark:text-gray-600 text-sm flex-shrink-0"></i>Priority delivery</li>
                 </ul>
                 <button class="w-full bg-gray-100 dark:bg-gray-700 hover:bg-amber-600 hover:text-white text-gray-900 dark:text-white py-3 rounded-xl font-bold text-sm transition-all mt-auto">Choose Plan</button>
             </div>
@@ -352,8 +352,8 @@
             <!-- Plan 2 (Popular) -->
             <div class="bg-amber-600 p-8 rounded-3xl shadow-2xl shadow-amber-500/20 hover:-translate-y-2 transition-all duration-500 text-center relative overflow-hidden group flex flex-col h-full">
                 <div class="absolute top-0 right-0 bg-white text-amber-700 text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase tracking-widest">Most Popular</div>
-                <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-heart text-3xl text-white"></i>
+                <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-star text-2xl text-white"></i>
                 </div>
                 <h3 class="font-black text-xl mb-1 text-white">Cookie Lover</h3>
                 <p class="text-xs text-amber-200 uppercase tracking-widest mb-6">24 cookies / month</p>
@@ -362,18 +362,18 @@
                     <span class="text-amber-200 text-sm">/month</span>
                 </div>
                 <ul class="text-sm text-amber-100 space-y-3 mb-8 text-left">
-                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>24 cookies per delivery</li>
-                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>Choose 4 flavors</li>
-                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>Free express shipping</li>
-                    <li class="flex items-center"><i class="fas fa-check text-white mr-3 text-xs"></i>Priority delivery</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-white text-sm flex-shrink-0"></i>24 cookies per delivery</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-white text-sm flex-shrink-0"></i>Choose 4 flavors</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-white text-sm flex-shrink-0"></i>Free express shipping</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-white text-sm flex-shrink-0"></i>Priority delivery</li>
                 </ul>
                 <button class="w-full bg-white text-amber-700 hover:bg-gray-100 py-3 rounded-xl font-black text-sm transition-all mt-auto">Choose Plan</button>
             </div>
 
             <!-- Plan 3 -->
             <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center group flex flex-col h-full">
-                <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-crown text-3xl text-amber-600"></i>
+                <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-gem text-2xl text-amber-600"></i>
                 </div>
                 <h3 class="font-black text-xl mb-1 dark:text-white">Cookie Royalty</h3>
                 <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">48 cookies / month</p>
@@ -382,10 +382,10 @@
                     <span class="text-gray-400 text-sm">/month</span>
                 </div>
                 <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-3 mb-8 text-left">
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>48 cookies per delivery</li>
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>All flavors included</li>
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>Free same-day delivery</li>
-                    <li class="flex items-center"><i class="fas fa-check text-amber-600 mr-3 text-xs"></i>Exclusive new flavors first</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>48 cookies per delivery</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>All flavors included</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>Free same-day delivery</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-circle-check text-amber-600 text-sm flex-shrink-0"></i>Exclusive new flavors first</li>
                 </ul>
                 <button class="w-full bg-gray-100 dark:bg-gray-700 hover:bg-amber-600 hover:text-white text-gray-900 dark:text-white py-3 rounded-xl font-bold text-sm transition-all mt-auto">Choose Plan</button>
             </div>
